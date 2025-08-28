@@ -77,6 +77,18 @@
     footer{margin-top:3rem;padding:2rem 0 3rem;color:var(--muted);border-top:1px solid rgba(255,255,255,.06)}
 
     /* =====================
+       FAQ (faq-*)
+       ===================== */
+    .faq{margin-top:2rem}
+    .faq .faq__list{display:flex;flex-direction:column;gap:.75rem}
+    .faq details{border:1px solid rgba(255,255,255,.1);border-radius:14px;padding:1rem 1.1rem;background:linear-gradient(180deg,rgba(255,255,255,.05),rgba(255,255,255,.02))}
+    .faq details[open]{box-shadow:0 12px 30px rgba(0,0,0,.25), inset 0 0 0 1px rgba(255,255,255,.12)}
+    .faq summary{list-style:none;cursor:pointer;display:flex;align-items:center;gap:.6rem;font-weight:800;font-size:1.05rem}
+    .faq summary::-webkit-details-marker{display:none}
+    .faq summary::before{content:'✦';display:inline-grid;place-items:center;width:26px;height:26px;border-radius:999px;background:linear-gradient(90deg,var(--accent),var(--accent2));color:#02131a;font-weight:900}
+    .faq__content{margin-top:.5rem;color:#cbd5e1}
+
+    /* =====================
        Floating WhatsApp
        ===================== */
     .waFloat{position:fixed; right:16px; bottom:16px; width:56px; height:56px; z-index:60; display:grid; place-items:center; border-radius:14px; box-shadow:0 12px 30px rgba(0,0,0,.35); background:transparent}
@@ -240,11 +252,30 @@
     </section>
 
     <!-- FAQ -->
-    <section style="margin-top:2rem">
-      <h2 style="font-size:1.5rem;font-weight:800;margin:1rem 0" data-i18n="faqs">FAQs</h2>
-      <details><summary data-i18n="faq_book_q">How do I book?</summary><div class="card__desc" data-i18n="faq_book_a">Use WhatsApp, Facebook, or email below. Tell me your dates and which tour you want. I’ll confirm quickly.</div></details>
-      <details><summary data-i18n="faq_bring_q">What should I bring?</summary><div class="card__desc" data-i18n="faq_bring_a">Sunblock, hat, swimwear for kayaking/waterfall, and comfortable shoes for walking. I provide water and fruit.</div></details>
-      <details><summary data-i18n="faq_english_q">Is English OK?</summary><div class="card__desc" data-i18n="faq_english_a">Yes! I speak excellent English and I’m happy to explain local culture and history.</div></details>
+    <section class="faq" aria-labelledby="faq-heading">
+      <h2 id="faq-heading" style="font-size:1.5rem;font-weight:800;margin:1rem 0" data-i18n="faqs">FAQs</h2>
+      <div class="faq__list">
+        <details>
+          <summary data-i18n="faq_book_q">How do I book?</summary>
+          <div class="faq__content" data-i18n="faq_book_a">Use WhatsApp, Facebook, or email below. Tell me your dates and which tour you want. I’ll confirm quickly.</div>
+        </details>
+        <details>
+          <summary data-i18n="faq_bring_q">What should I bring?</summary>
+          <div class="faq__content" data-i18n="faq_bring_a">Sunblock, hat, swimwear for kayaking/waterfall, and comfortable shoes for walking. I provide water and fruit.</div>
+        </details>
+        <details>
+          <summary data-i18n="faq_english_q">Is English OK?</summary>
+          <div class="faq__content" data-i18n="faq_english_a">Yes! I speak excellent English and I’m happy to explain local culture and history.</div>
+        </details>
+        <details>
+          <summary data-i18n="faq_lang_q">What languages are offered?</summary>
+          <div class="faq__content" data-i18n="faq_lang_a">English and Khmer.</div>
+        </details>
+        <details>
+          <summary data-i18n="faq_group_q">Do you offer group rates?</summary>
+          <div class="faq__content" data-i18n="faq_group_a">Yes — get in touch and I’ll tailor a price for your group.</div>
+        </details>
+      </div>
     </section>
 
     <!-- About -->
@@ -342,6 +373,8 @@
         alt_green1:'Kayak parmi les mangroves',alt_green2:'Couronnes de lotus et canaux calmes',alt_green3:'Déjeuner sur une plage de sable tranquille',
         alt_waterfall1:'Sentier de jungle vers la cascade',alt_waterfall2:'Bassin de la cascade de Viel Pouch',alt_waterfall3:'Pause fruits frais au bord de la rivière',
         alt_grand1:'Salines près de Kampot',alt_grand2:'Vignes de poivre à la ferme',alt_grand3:'Entrée d’une grotte ancienne',
+        faq_lang_q:'Quelles langues sont proposées ?',faq_lang_a:'Anglais et khmer.',
+        faq_group_q:'Tarifs de groupe ?',faq_group_a:'Oui — contactez-moi et je proposerai un tarif adapté à votre groupe.',
         brand_footer:'TukTuk Tours avec Sa',
         wa_label:'Discuter sur WhatsApp'
       },
@@ -377,7 +410,9 @@
         alt_green1:'Kayaking among mangroves',alt_green2:'Lotus crowns and calm canals',alt_green3:'Sandy beach lunch stop',
         alt_waterfall1:'Jungle trail to the waterfall',alt_waterfall2:'Viel Pouch Waterfall pool',alt_waterfall3:'Fresh fruit break by the river',
         alt_grand1:'Salt fields near Kampot',alt_grand2:'Pepper vines at the farm',alt_grand3:'Ancient cave entrance',
-        brand_footer:'TukTuk Tours with Sa',
+        faq_lang_q:'What languages are offered?',faq_lang_a:'English and Khmer.',
+        faq_group_q:'Do you offer group rates?',faq_group_a:'Yes — get in touch and I’ll tailor a price for your group.',
+        brand_footer:'TukTuk Tours with Sa'
         wa_label:'Chat on WhatsApp'
       }
     };
