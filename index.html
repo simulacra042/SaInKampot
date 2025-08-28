@@ -89,6 +89,12 @@
     /* Reduced motion */
     @media(prefers-reduced-motion:reduce){*{animation:none!important;transition:none!important}}
   </style>
+  <style>
+    /* Floating WhatsApp button */
+    .wa-float{position:fixed; right:16px; bottom:16px; width:56px; height:56px; z-index:60; display:grid; place-items:center; border-radius:14px; box-shadow:0 12px 30px rgba(0,0,0,.35); background:transparent}
+    .wa-float img{width:100%; height:100%; object-fit:contain}
+    @media(max-width:640px){ .wa-float{ right:12px; bottom:calc(12px + env(safe-area-inset-bottom)); width:64px; height:64px } }
+  </style>
 </head>
 <body>
   <header>
@@ -131,13 +137,13 @@
         <!-- Kayak -->
         <article class="card">
           <div class="carousel" data-carousel aria-label="Kayak the Green Cathedral">
-            <button class="nav prev" data-carousel-prev aria-label="Previous photo">‹</button>
+            <button type="button" class="nav prev" data-carousel-prev aria-label="Previous photo">‹</button>
             <div class="track" data-carousel-track>
               <img class="slide" loading="lazy" src="images/green-cathedral-1.jpg" alt="Kayaking among mangroves" data-i18n-attr="alt" data-i18n="alt_green1">
               <img class="slide" loading="lazy" src="images/green-cathedral-2.jpg" alt="Lotus crowns and calm canals" data-i18n-attr="alt" data-i18n="alt_green2">
               <img class="slide" loading="lazy" src="images/green-cathedral-3.jpg" alt="Sandy beach lunch stop" data-i18n-attr="alt" data-i18n="alt_green3">
             </div>
-            <button class="nav next" data-carousel-next aria-label="Next photo">›</button>
+            <button type="button" class="nav next" data-carousel-next aria-label="Next photo">›</button>
             <div class="dots" data-carousel-dots></div>
             <span class=\"price-badge\">$25</span>
           </div>
@@ -158,13 +164,13 @@
         <!-- Waterfall -->
         <article class="card">
           <div class="carousel" data-carousel aria-label="Hidden Waterfall Tour">
-            <button class="nav prev" data-carousel-prev aria-label="Previous photo">‹</button>
+            <button type="button" class="nav prev" data-carousel-prev aria-label="Previous photo">‹</button>
             <div class="track" data-carousel-track>
               <img class="slide" loading="lazy" src="images/hidden-waterfall-1.jpg" alt="Jungle trail to the waterfall" data-i18n-attr="alt" data-i18n="alt_waterfall1">
               <img class="slide" loading="lazy" src="images/hidden-waterfall-2.jpg" alt="Viel Pouch Waterfall pool" data-i18n-attr="alt" data-i18n="alt_waterfall2">
               <img class="slide" loading="lazy" src="images/hidden-waterfall-3.jpg" alt="Fresh fruit break by the river" data-i18n-attr="alt" data-i18n="alt_waterfall3">
             </div>
-            <button class="nav next" data-carousel-next aria-label="Next photo">›</button>
+            <button type="button" class="nav next" data-carousel-next aria-label="Next photo">›</button>
             <div class="dots" data-carousel-dots></div>
             <span class="price-badge">$35</span>
           </div>
@@ -183,13 +189,13 @@
         <!-- Grand tour -->
         <article class="card">
           <div class="carousel" data-carousel aria-label="Kampot Grand Tour">
-            <button class="nav prev" data-carousel-prev aria-label="Previous photo">‹</button>
+            <button type="button" class="nav prev" data-carousel-prev aria-label="Previous photo">‹</button>
             <div class="track" data-carousel-track>
               <img class="slide" loading="lazy" src="images/grand-tour-1.jpg" alt="Salt fields near Kampot" data-i18n-attr="alt" data-i18n="alt_grand1">
               <img class="slide" loading="lazy" src="images/grand-tour-2.jpg" alt="Pepper vines at the farm" data-i18n-attr="alt" data-i18n="alt_grand2">
               <img class="slide" loading="lazy" src="images/grand-tour-3.jpg" alt="Ancient cave entrance" data-i18n-attr="alt" data-i18n="alt_grand3">
             </div>
-            <button class="nav next" data-carousel-next aria-label="Next photo">›</button>
+            <button type="button" class="nav next" data-carousel-next aria-label="Next photo">›</button>
             <div class="dots" data-carousel-dots></div>
             <span class="price-badge">$45</span>
           </div>
@@ -323,6 +329,7 @@
         about_text:'Je ne suis pas seulement conducteur de tuktuk. Je suis guide cambodgien certifié avec plus de 10 ans d\'expérience. J\'ai grandi à Kampot et je parle très bien anglais. Je ne vous dépose pas pour attendre — je vous accompagne tout au long de l\'expérience, avec des histoires et des explications claires et amusantes. Mon enthousiasme et ma connaissance locale font de moi l\'un des meilleurs guides de Kampot.',
         contact_heading:'Réserver une visite',contact_note:'Choisissez le moyen qui vous convient. Remplacez les coordonnées de démonstration par les miennes avant publication.',
         btn_email:'E‑mail',btn_whatsapp:'WhatsApp',btn_call:'Appeler',btn_facebook:'Facebook',rights:'Tous droits réservés.',
+        wa_label:'Discuter sur WhatsApp',
         alt_green1:'Kayak parmi les mangroves',alt_green2:'Couronnes de lotus et canaux calmes',alt_green3:'Déjeuner sur une plage de sable tranquille',
         alt_waterfall1:'Sentier de jungle vers la cascade',alt_waterfall2:'Bassin de la cascade de Viel Pouch',alt_waterfall3:'Pause fruits frais au bord de la rivière',
         alt_grand1:'Salines près de Kampot',alt_grand2:'Vignes de poivre à la ferme',alt_grand3:'Entrée d’une grotte ancienne'
@@ -356,6 +363,7 @@
         about_text:'I’m not just a tuktuk driver. I am a fully certified Cambodian tour guide with over 10 years of experience. I grew up in Kampot and speak excellent English. I don’t just drop you off and wait—I join you for the whole experience, sharing the history, stories, and details behind each place in a way that is easy to understand and fun to hear. My enthusiasm, humor, and deep local knowledge make me one of the best guides in Kampot.',
         contact_heading:'Book a Tour',contact_note:'Choose what works for you below. Replace placeholders with my real contact details before publishing.',
         btn_email:'Email',btn_whatsapp:'WhatsApp',btn_call:'Call',btn_facebook:'Facebook',rights:'All rights reserved.',
+        wa_label:'Chat on WhatsApp',
         alt_green1:'Kayaking among mangroves',alt_green2:'Lotus crowns and calm canals',alt_green3:'Sandy beach lunch stop',
         alt_waterfall1:'Jungle trail to the waterfall',alt_waterfall2:'Viel Pouch Waterfall pool',alt_waterfall3:'Fresh fruit break by the river',
         alt_grand1:'Salt fields near Kampot',alt_grand2:'Pepper vines at the farm',alt_grand3:'Ancient cave entrance'
@@ -393,5 +401,8 @@
     // Dropdown change handler
     document.getElementById('lang').addEventListener('change', e=> setLang(e.target.value));
   </script>
+  <a class="wa-float" href="https://wa.me/85500000000" target="_blank" rel="noopener" data-i18n-attr="aria-label" data-i18n="wa_label" aria-label="Chat on WhatsApp" title="WhatsApp">
+    <img src="images/whatsapp.jpg" alt="WhatsApp" width="64" height="64" />
+  </a>
 </body>
 </html>
