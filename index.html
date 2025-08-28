@@ -1,0 +1,291 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Sa’s TukTuk Tours • Kampot, Cambodia</title>
+  <meta name="description" content="TukTuk Tours with Sa – Kampot. Simple, affordable tours: Kayak the Green Cathedral, Hidden Waterfall, and the Kampot Grand Tour." />
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;800&family=Noto+Sans+Khmer:wght@400;600&display=swap" rel="stylesheet">
+  <style>
+    :root{
+      --bg:#0f172a;
+      --panel:#0b1225;
+      --text:#e5e7eb;
+      --muted:#94a3b8;
+      --accent:#22d3ee;
+      --accent-2:#a78bfa;
+      --card:#111827;
+      --ring:#334155;
+    }
+    *{box-sizing:border-box}
+    html,body{margin:0; padding:0; background:linear-gradient(180deg,var(--bg),#050a19); color:var(--text); font-family:Inter, system-ui, -apple-system, Segoe UI, Roboto, "Noto Sans Khmer", Arial, sans-serif}
+    a{color:inherit; text-decoration:none}
+    .container{max-width:1100px; margin:0 auto; padding:0 1rem}
+    header{position:sticky; top:0; backdrop-filter: blur(8px); background:rgba(10,14,30,.6); border-bottom:1px solid rgba(255,255,255,.06); z-index:10}
+    .nav{display:flex; align-items:center; justify-content:space-between; padding:0.85rem 0}
+    .brand{display:flex; align-items:center; gap:.65rem; font-weight:800; letter-spacing:0.2px}
+    .badge{font-size:.75rem; padding:.25rem .5rem; border:1px solid rgba(255,255,255,.08); border-radius:999px; color:var(--muted)}
+    .cta{display:inline-flex; align-items:center; gap:.5rem; padding:.65rem .9rem; border-radius:12px; background:linear-gradient(90deg,var(--accent),var(--accent-2)); color:#03131a; font-weight:700}
+    .cta:hover{filter:brightness(1.08)}
+    .hero{position:relative; padding:5rem 0 3rem}
+    .hero h1{font-size: clamp(1.8rem, 4vw, 3rem); line-height:1.1; margin:0 0 .75rem; font-weight:800}
+    .sub{max-width:60ch; color:var(--muted); font-size:1.05rem}
+    .grid{display:grid; grid-template-columns:repeat(12,1fr); gap:1.25rem}
+    .card{grid-column:span 12; background:linear-gradient(180deg,rgba(255,255,255,.03), rgba(255,255,255,.015)); border:1px solid rgba(255,255,255,.06); border-radius:18px; overflow:hidden}
+    @media (min-width: 840px){ .card{grid-column:span 4} }
+    .thumb{aspect-ratio: 16/10; width:100%; background:#0a132b center/cover no-repeat}
+    .content{padding:1rem 1.1rem 1.25rem}
+    .title{font-size:1.25rem; font-weight:800; margin:0 0 .5rem}
+    .desc{color:var(--muted); font-size:.98rem}
+    .inc{margin:.75rem 0 .5rem; padding-left:1rem}
+    .inc li{margin:.25rem 0; color:#c7cdd8}
+    .price{display:flex; align-items:center; justify-content:space-between; gap:1rem; margin-top:1rem; padding-top:.75rem; border-top:1px dashed var(--ring)}
+    .price strong{font-size:1.4rem}
+    .pill{padding:.4rem .6rem; border:1px solid rgba(255,255,255,.08); border-radius:999px; color:var(--muted); font-size:.8rem}
+    .quote{margin:2.25rem 0 0; padding:1rem 1.1rem; border-left:3px solid var(--accent); background:rgba(255,255,255,.03); border-radius:10px}
+    footer{margin-top:3rem; padding:2rem 0 3rem; color:var(--muted); border-top:1px solid rgba(255,255,255,.06)}
+    .kh{font-family:"Noto Sans Khmer", Inter, system-ui, sans-serif}
+    .note{font-size:.9rem; color:var(--muted)}
+    .tag{display:inline-block; font-size:.75rem; padding:.25rem .5rem; border-radius:999px; background:rgba(255,255,255,.06); color:#cfe9f2; border:1px solid rgba(255,255,255,.08)}
+    .buttons{display:flex; gap:.5rem; flex-wrap:wrap}
+    .btn{display:inline-flex; align-items:center; gap:.5rem; padding:.6rem .8rem; border-radius:12px; border:1px solid rgba(255,255,255,.12); background:rgba(255,255,255,.02); font-weight:600}
+    .btn:hover{background:rgba(255,255,255,.06)}
+  </style>
+  <style>
+    /* ✨ Glow accents & motion */
+    .blob{position:absolute; filter:blur(60px); opacity:.35; pointer-events:none}
+    .blob.one{width:420px; height:420px; background:radial-gradient(circle at 30% 30%, #22d3ee, transparent 60%); top:-60px; left:-80px; animation: float 12s ease-in-out infinite}
+    .blob.two{width:520px; height:520px; background:radial-gradient(circle at 70% 40%, #a78bfa, transparent 60%); bottom:-120px; right:-60px; animation: float 16s ease-in-out infinite reverse}
+    @keyframes float{0%{transform:translateY(0)}50%{transform:translateY(-20px)}100%{transform:translateY(0)}}
+
+    /* Hero upgrade */
+    .hero{position:relative; padding:7rem 0 4rem; border-bottom:1px solid rgba(255,255,255,.06)}
+    .hero-wrap{position:relative}
+    .hero-bg{position:absolute; inset:-40px -24px -40px -24px; background:linear-gradient(180deg, rgba(2,6,23,.8), rgba(2,6,23,.6)), url('images/hero-kampot.jpg') center/cover no-repeat; z-index:-2; border-bottom-left-radius:28px; border-bottom-right-radius:28px; box-shadow:0 30px 60px rgba(0,0,0,.45)}
+    .shine{position:absolute; inset:0; background:radial-gradient(1200px 500px at 10% -20%, rgba(34,211,238,.25), transparent 60%), radial-gradient(1200px 500px at 110% 0%, rgba(167,139,250,.25), transparent 60%); mix-blend-mode:screen; z-index:-1}
+
+    .hero h1{font-size: clamp(2.1rem, 5vw, 4rem)}
+    .hero .lead{font-size: clamp(1.05rem, 1.8vw, 1.25rem); color:#cbd5e1; max-width:70ch}
+    .hero-cta{display:flex; gap:.6rem; margin-top:1rem; flex-wrap:wrap}
+    .cta-ghost{display:inline-flex; align-items:center; gap:.5rem; padding:.65rem .9rem; border-radius:12px; border:1px solid rgba(255,255,255,.18); background:rgba(255,255,255,.04); font-weight:700}
+
+    /* Fancy cards */
+    .card{position:relative}
+    .thumb{position:relative; overflow:hidden}
+    .thumb:after{content:""; position:absolute; inset:0; background:linear-gradient(180deg, transparent, rgba(0,0,0,.35));}
+    .price-badge{position:absolute; top:.75rem; right:.75rem; background:linear-gradient(90deg,var(--accent),var(--accent-2)); color:#02131a; font-weight:900; padding:.35rem .55rem; border-radius:10px; font-size:.9rem; box-shadow:0 10px 24px rgba(0,0,0,.35)}
+    .thumb img{width:100%; height:100%; object-fit:cover; transform:scale(1); transition:transform .5s ease}
+    .card:hover .thumb img{transform:scale(1.08)}
+
+    /* Testimonial carousel (simple) */
+    .testimonials{margin-top:2.5rem}
+    .marquee{display:flex; gap:1rem; overflow:auto; scroll-snap-type:x mandatory; padding-bottom:.5rem}
+    .quote-card{min-width:280px; scroll-snap-align:start; background:linear-gradient(180deg,rgba(255,255,255,.05), rgba(255,255,255,.02)); border:1px solid rgba(255,255,255,.08); border-radius:16px; padding:1rem}
+
+    /* Gallery */
+    .gallery{margin-top:2.5rem; display:grid; grid-template-columns:repeat(12,1fr); gap:.75rem}
+    .g{grid-column:span 12; border-radius:14px; overflow:hidden; border:1px solid rgba(255,255,255,.06)}
+    @media(min-width:840px){.g{grid-column:span 4}}
+
+    /* Floating book bar */
+    .floatbar{position:fixed; left:50%; transform:translateX(-50%); bottom:18px; backdrop-filter: blur(10px); background:rgba(11,18,37,.7); border:1px solid rgba(255,255,255,.12); border-radius:14px; padding:.5rem; display:flex; gap:.5rem; z-index:40}
+
+    /* FAQ */
+    details{background:rgba(255,255,255,.03); border:1px solid rgba(255,255,255,.08); border-radius:12px; padding:.8rem 1rem}
+    details+details{margin-top:.5rem}
+    summary{cursor:pointer; font-weight:700}
+
+  </style>
+  <style>
+    /* 📱 Mobile optimizations */
+    @media (max-width: 640px){
+      .container{padding:0 .9rem}
+      header .nav{padding:.7rem 0}
+      .hero{padding:5rem 0 2.25rem}
+      .hero-bg{inset:-16px -12px -16px -12px; border-bottom-left-radius:18px; border-bottom-right-radius:18px}
+      .blob{display:none}
+      .hero h1{font-size: clamp(1.6rem, 7vw, 2.25rem)}
+      .hero .lead{font-size:1rem}
+      .hero-cta .cta, .hero-cta .cta-ghost{flex:1 1 100%; justify-content:center}
+      .grid{gap:.9rem}
+      .buttons{gap:.5rem}
+      .buttons .btn{flex:1 1 100%; justify-content:center; padding:0.9rem 1rem}
+      .floatbar{width:min(680px,92vw); bottom:calc(12px + env(safe-area-inset-bottom)); left:50%; transform:translateX(-50%)}
+      body{padding-bottom:88px} /* room for float bar */
+      .quote-card{min-width:240px}
+      .gallery{gap:.5rem}
+      .g{grid-column:span 12}
+    }
+
+    /* Reduce animation/blur on low-power devices */
+    @media (prefers-reduced-motion: reduce){
+      *{animation:none!important; transition:none!important}
+      .blob{display:none}
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <div class="container nav">
+      <div class="brand">
+        <svg width="28" height="28" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true"><path d="M4 10c0-2.761 2.239-5 5-5h6c2.761 0 5 2.239 5 5v4c0 2.761-2.239 5-5 5H9c-2.761 0-5-2.239-5-5v-4Z" stroke="#22d3ee" stroke-width="1.2"/><path d="M7 12h10M8.5 15H12" stroke="#a78bfa" stroke-width="1.2" stroke-linecap="round"/></svg>
+        <span>TukTuk Tours with Sa</span>
+        <span class="badge">Kampot, Cambodia</span>
+      </div>
+      <a href="#contact" class="cta">Book a Tour</a>
+    </div>
+  </header>
+
+  <main class="container">
+    <section class="hero">
+  <div class="hero-wrap">
+    <div class="hero-bg"></div>
+    <div class="shine"></div>
+    <span class="blob one"></span>
+    <span class="blob two"></span>
+    <h1>សូមស្វាគមន៍! Welcome to my TukTuk Tours</h1>
+    <p class="lead">I’m Sa — a licensed guide and lifelong Kampot local. I run small, friendly tours to the places I love most: mangrove kayaking, secret waterfalls, pepper farms, salt fields, ancient caves, and more. If you like stories, nature, and calm views by the river, I’ve got you.</p>
+    <div class="hero-cta">
+      <a href="#contact" class="cta">Book with me</a>
+      <a href="#tours-heading" class="cta-ghost">See my tours</a>
+    </div>
+  </div>
+</section>
+
+    <section aria-labelledby="tours-heading">
+      <h2 id="tours-heading" style="font-size:1.5rem; margin:1rem 0 1rem; font-weight:800">My Tours</h2>
+      <div class="grid">
+        <article class="card">
+          <div class="thumb" role="img" aria-label="Kayak the Green Cathedral"><span class="price-badge">$25</span><img loading="lazy" src="images/green-cathedral.jpg" alt="Kayak the Green Cathedral"/></div>
+          <div class="content">
+            <h3 class="title">Kayak the Green Cathedral</h3>
+            <p class="desc">Join me for a kayaking trip through Kampot’s famous mangrove forests. I’ll explain the local fauna and flora, show you how to make lotus crowns, and more! We’ll end the day with a traditional Khmer lunch and a swim at a secluded sandy beach.</p>
+            <h4 style="margin:.9rem 0 .25rem; font-weight:700">Tour Includes</h4>
+            <ul class="inc">
+              <li>Pick up and drop off at your hotel</li>
+              <li>Kayaks</li>
+              <li>Traditional Khmer Lunch</li>
+              <li>Drinks</li>
+            </ul>
+            <div class="price">
+              <div><span class="pill">Per person</span></div>
+              <strong>$25</strong>
+            </div>
+          </div>
+        </article>
+
+        <article class="card">
+          <div class="thumb" role="img" aria-label="Hidden Waterfall Tour"><span class="price-badge">$35</span><img loading="lazy" src="images/hidden-waterfall.jpg" alt="Hidden Waterfall Tour"/></div>
+          <div class="content">
+            <h3 class="title">Hidden Waterfall Tour</h3>
+            <p class="desc">Escape the city and join me on a guided jungle hike to the Viel Pouch Waterfall. Along the way, I’ll point out local plants and wildlife and share my knowledge of the forest. Cool off with a swim, enjoy fresh fruit and drinks, and experience a quiet side of Kampot many visitors miss.</p>
+            <h4 style="margin:.9rem 0 .25rem; font-weight:700">Tour Includes</h4>
+            <ul class="inc">
+              <li>Pick up and drop off at your hotel</li>
+              <li>Fresh fruit and drinks</li>
+            </ul>
+            <div class="price">
+              <div><span class="pill">Per person</span></div>
+              <strong>$35</strong>
+            </div>
+          </div>
+        </article>
+
+        <article class="card">
+          <div class="thumb" role="img" aria-label="Kampot Grand Tour"><span class="price-badge">$45</span><img loading="lazy" src="images/grand-tour.jpg" alt="Kampot Grand Tour"/></div>
+          <div class="content">
+            <h3 class="title">Kampot Grand Tour</h3>
+            <p class="desc">Limited for time? Want to make the most of it? My Grand Tour will take you to the major tourist attractions in Kampot in a single day. Sit back, relax, and see everything Kampot has to offer!</p>
+            <h4 style="margin:.9rem 0 .25rem; font-weight:700">Tour Includes</h4>
+            <ul class="inc">
+              <li>Pick up and drop off at your hotel</li>
+              <li>The Salt Fields</li>
+              <li>Visit to a Pepper Farm</li>
+              <li>Stop off at Secret Lake</li>
+              <li>Explore local ancient caves</li>
+              <li>Kayak the Green Cathedral</li>
+              <li>Traditional Khmer Lunch</li>
+            </ul>
+            <div class="price">
+              <div><span class="pill">Per person</span></div>
+              <strong>$45</strong>
+            </div>
+          </div>
+        </article>
+      </div>
+    </section>
+
+    <!-- ⭐ Testimonials / social proof -->
+    <section class="testimonials" aria-label="Traveler reviews">
+      <h2 style="font-size:1.5rem; font-weight:800; margin:1rem 0">What travelers say</h2>
+      <div class="marquee">
+        <div class="quote-card">“Sa is the best guide in Kampot. Friendly, funny, and full of stories.” — Alice, UK</div>
+        <div class="quote-card">“The kayak route through the mangroves was stunning. We learned so much.” — Marco, IT</div>
+        <div class="quote-card">“Grand Tour was perfect for one day. Pepper farm + caves + sunset = wow.” — Linh, VN</div>
+        <div class="quote-card">“Spoke great English and looked after our kids. 10/10.” — Sarah, AU</div>
+      </div>
+    </section>
+
+    <!-- 🖼️ Gallery -->
+    <section class="gallery" aria-label="Photo gallery">
+      <div class="g"><img loading="lazy" src="images/gallery-1.jpg" alt="Kampot river at sunset" style="width:100%; display:block"></div>
+      <div class="g"><img loading="lazy" src="images/gallery-2.jpg" alt="Pepper vines at a local farm" style="width:100%; display:block"></div>
+      <div class="g"><img loading="lazy" src="images/gallery-3.jpg" alt="Secret lake view" style="width:100%; display:block"></div>
+    </section>
+
+    <!-- ❓ FAQ -->
+    <section style="margin-top:2rem">
+      <h2 style="font-size:1.5rem; font-weight:800; margin:1rem 0">FAQs</h2>
+      <details><summary>How do I book?</summary><div class="desc">Use WhatsApp, Facebook, or email below. Tell me your dates and which tour you want. I’ll confirm quickly.</div></details>
+      <details><summary>What should I bring?</summary><div class="desc">Sunblock, hat, swimwear for kayaking/waterfall, and comfortable shoes for walking. I provide water and fruit.</div></details>
+      <details><summary>Is English OK?</summary><div class="desc">Yes! I speak excellent English and I’m happy to explain local culture and history.</div></details>
+    </section>
+
+    <section id="about" style="margin-top:2.5rem">
+      <div class="grid">
+        <div class="card" style="grid-column: span 12; padding:1.1rem 1.1rem 1.25rem">
+          <h2 style="font-size:1.25rem; font-weight:800; margin:.25rem 0 0.5rem">About Me</h2>
+          <p class="desc" style="margin:0">I’m not just a tuktuk driver. I am a fully certified Cambodian tour guide with over 10 years of experience. I grew up in Kampot and speak excellent English. I don’t just drop you off and wait—I join you for the whole experience, sharing the history, stories, and details behind each place in a way that is easy to understand and fun to hear. My enthusiasm, humor, and deep local knowledge make me one of the best guides in Kampot.</p>
+        </div>
+      </div>
+    </section>
+
+    <section id="contact" style="margin-top:2.5rem">
+      <div class="grid">
+        <div class="card" style="grid-column: span 12; padding:1.1rem 1.1rem 1.25rem">
+          <h2 style="font-size:1.25rem; font-weight:800; margin:.25rem 0 0.5rem">Book a Tour</h2>
+          <p class="note">Choose what works for you below. Replace placeholders with my real contact details before publishing.</p>
+          <div class="buttons" style="margin-top:.75rem">
+            <a class="btn" href="mailto:bookings@example.com?subject=Tour%20booking%20-%20Sa%27s%20Tours&body=Hi%20Sa%2C%0A%0AI%E2%80%99d%20like%20to%20book%20a%20tour.%20Here%20are%20the%20details%3A%0A%E2%80%A2%20Tour%3A%20%5BKayak%20%2F%20Waterfall%20%2F%20Grand%5D%0A%E2%80%A2%20Date%3A%20%0A%E2%80%A2%20Number%20of%20people%3A%20%0A%E2%80%A2%20Hotel%3A%20%0A%0AThanks!">Email</a>
+            <a class="btn" href="https://wa.me/85500000000" target="_blank" rel="noopener">WhatsApp</a>
+            <a class="btn" href="tel:+85500000000">Call</a>
+            <a class="btn" href="https://www.facebook.com/yourpage" target="_blank" rel="noopener">Facebook</a>
+          </div>
+          <p class="note" style="margin-top:1rem">Optional: You can connect a static form handler like Formspree or Basin—replace the Email button with a form post URL if preferred.</p>
+        </div>
+      </div>
+    </section>
+    <div class="floatbar" role="region" aria-label="Quick booking bar" style="max-width:680px">
+    <a class="btn" href="https://wa.me/85500000000" target="_blank" rel="noopener">WhatsApp</a>
+    <a class="btn" href="tel:+85500000000">Call</a>
+    <a class="btn" href="#contact">Email</a>
+  </div>
+
+  </main>
+
+  <footer>
+    <div class="container">
+      <div style="display:flex; justify-content:space-between; gap:1rem; flex-wrap:wrap">
+        <div>
+          <strong>TukTuk Tours with Sa</strong>
+          <div style="color:var(--muted)">Kampot, Cambodia</div>
+        </div>
+        <div style="color:var(--muted)">© <span id="y"></span> TukTuk Tours with Sa. All rights reserved.</div>
+      </div>
+    </div>
+  </footer>
+  <script>document.getElementById('y').textContent = new Date().getFullYear()</script>
+</body>
+</html>
