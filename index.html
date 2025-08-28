@@ -81,6 +81,13 @@
     .carousel .dot[aria-current="true"]{background:#fff}
     .price-badge{position:absolute; top:.75rem; right:.75rem; background:linear-gradient(90deg,var(--accent),var(--accent-2)); color:#02131a; font-weight:900; padding:.35rem .55rem; border-radius:10px; font-size:.9rem; box-shadow:0 10px 24px rgba(0,0,0,.35); z-index:2}
   </style>
+  <style>
+    /* 💬 WhatsApp floating bubble */
+    .wa-bubble{position:fixed; right:16px; bottom:16px; width:56px; height:56px; border-radius:999px; background:#25D366; display:grid; place-items:center; color:#fff; box-shadow:0 10px 25px rgba(0,0,0,.35); z-index:60}
+    .wa-bubble:focus{outline:2px solid #e5e7eb; outline-offset:2px}
+    .wa-bubble svg{width:28px; height:28px; fill:#fff}
+    @media(max-width:640px){ .wa-bubble{ bottom: calc(16px + env(safe-area-inset-bottom)) } }
+  </style>
 </head>
 <body>
   <header>
@@ -339,6 +346,7 @@
         contact_heading: 'Réserver une visite',
         contact_note: 'Choisissez le moyen qui vous convient. Remplacez les coordonnées de démonstration par les miennes avant publication.',
         btn_email: 'E‑mail', btn_whatsapp: 'WhatsApp', btn_call: 'Appeler', btn_facebook: 'Facebook',
+        wa_bubble_label: 'Discuter sur WhatsApp',
         rights: 'Tous droits réservés.',
         alt_green1: 'Kayak parmi les mangroves',
         alt_green2: 'Couronnes de lotus et canaux calmes',
@@ -387,6 +395,11 @@
         contact_heading: 'Book a Tour',
         contact_note: 'Choose what works for you below. Replace placeholders with my real contact details before publishing.',
         btn_email: 'Email', btn_whatsapp: 'WhatsApp', btn_call: 'Call', btn_facebook: 'Facebook',
+        wa_bubble_label: 'Chat on WhatsApp',
+        rights: 'All rights reserved.',
+        alt_green1: 'Kayaking among mangroves', alt_green2: 'Lotus crowns and calm canals', alt_green3: 'Sandy beach lunch stop',
+        alt_waterfall1: 'Jungle trail to the waterfall', alt_waterfall2: 'Viel Pouch Waterfall pool', alt_waterfall3: 'Fresh fruit break by the river',
+        alt_grand1: 'Salt fields near Kampot', alt_grand2: 'Pepper vines at the farm', alt_grand3: 'Ancient cave entrance'
         rights: 'All rights reserved.',
         alt_green1: 'Kayaking among mangroves', alt_green2: 'Lotus crowns and calm canals', alt_green3: 'Sandy beach lunch stop',
         alt_waterfall1: 'Jungle trail to the waterfall', alt_waterfall2: 'Viel Pouch Waterfall pool', alt_waterfall3: 'Fresh fruit break by the river',
@@ -429,5 +442,8 @@
       if(!btn) return; setLang(btn.dataset.lang);
     });
   </script>
+<a class="wa-bubble" href="https://wa.me/85500000000" target="_blank" rel="noopener" data-i18n-attr="aria-label" data-i18n="wa_bubble_label" aria-label="Chat on WhatsApp" title="WhatsApp">
+  <svg viewBox="0 0 32 32" aria-hidden="true"><path d="M19.11 17.31c-.29-.14-1.73-.85-2-.95-.27-.1-.46-.14-.66.14-.2.29-.76.95-.93 1.14-.17.2-.34.22-.63.08-.29-.14-1.23-.45-2.34-1.44-.86-.77-1.44-1.72-1.61-2.01-.17-.29-.02-.45.12-.59.12-.12.29-.31.43-.46.14-.15.18-.26.27-.43.09-.17.05-.32-.02-.46-.07-.14-.66-1.59-.9-2.17-.24-.58-.48-.5-.66-.5-.17 0-.37-.02-.57-.02s-.52.08-.8.38c-.27.29-1.05 1.03-1.05 2.51 0 1.48 1.08 2.91 1.23 3.11.15.2 2.12 3.24 5.14 4.54.72.31 1.28.5 1.72.64.72.23 1.37.2 1.88.12.57-.08 1.73-.71 1.98-1.4.24-.69.24-1.28.17-1.4-.07-.12-.27-.2-.56-.34zM16.03 3C9.95 3 5 7.95 5 14.02c0 2.43.77 4.68 2.08 6.52L6 27l6.62-1.99c1.8.98 3.88 1.55 6.08 1.55 6.08 0 11.02-4.95 11.02-11.02C29.72 7.95 24.78 3 18.7 3h-2.67zM12.7 24.77l-.48-.29-3.92 1.18 1.22-3.82-.31-.5c-1.21-1.76-1.84-3.84-1.84-5.96 0-5.83 4.76-10.59 10.59-10.59s10.59 4.76 10.59 10.59-4.76 10.59-10.59 10.59c-1.99 0-3.92-.57-5.54-1.7z"/></svg>
+</a>
 </body>
 </html>
