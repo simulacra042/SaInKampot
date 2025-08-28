@@ -40,7 +40,7 @@
     .lead{font-size:clamp(1rem,1.8vw,1.15rem);color:#cbd5e1;max-width:70ch}
     .hero-cta{display:flex;gap:.6rem;margin-top:1rem;flex-wrap:wrap}
     .hero-intro{display:flex;align-items:center;gap:.75rem}
-    .hero-intro .logo{width:56px;height:56px;border-radius:999px;flex:0 0 auto;box-shadow:0 2px 10px rgba(0,0,0,.25)}
+    .hero-intro .logo{width:112px;height:112px;border-radius:999px;flex:0 0 auto;box-shadow:0 2px 10px rgba(0,0,0,.25)}
 
     /* ===== Grid / Cards ===== */
     .grid{display:grid;grid-template-columns:repeat(12,1fr);gap:1.1rem}
@@ -70,8 +70,7 @@
     footer{margin-top:3rem;padding:2rem 0 3rem;color:var(--muted);border-top:1px solid rgba(255,255,255,.06)}
 
     /* ===== Mobile ===== */
-    @media(max-width:640px){
-      .hero-intro .logo{width:36px;height:36px}
+    @media(max-width:640px){$1.hero-intro .logo{width:72px;height:72px}
     }
       header{background:var(--bg2);backdrop-filter:none}
       header .nav{padding:.7rem 0}
@@ -140,7 +139,7 @@
             </div>
             <button class="nav next" data-carousel-next aria-label="Next photo">›</button>
             <div class="dots" data-carousel-dots></div>
-            <span class="price-badge">5</span>
+            <span class=\"price-badge\">$25</span>
           </div>
           <div class="content">
             <h3 class="title" data-i18n="tour_green_title">Kayak the Green Cathedral</h3>
@@ -152,7 +151,7 @@
               <li data-i18n="khmer_lunch">Traditional Khmer Lunch</li>
               <li data-i18n="drinks">Drinks</li>
             </ul>
-            <div class="price"><div><span class="pill" data-i18n="per_person">Per person</span></div><strong>5</strong></div>
+            <div class="price"><div><span class="pill" data-i18n="per_person">Per person</span></div><strong>$25<\/strong></div>
           </div>
         </article>
 
