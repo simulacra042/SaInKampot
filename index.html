@@ -4,152 +4,163 @@
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <title>Sa’s TukTuk Tours • Kampot, Cambodia</title>
-  <meta name="description" content="TukTuk Tours with Sa – Kampot. Simple, affordable tours: Kayak the Green Cathedral, Hidden Waterfall, and the Kampot Grand Tour." />
+  <meta name="description" content="Visites en tuktuk avec Sa à Kampot : kayak dans la Cathédrale Verte, cascade cachée et Grand Tour. Réservations faciles." />
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;800&family=Noto+Sans+Khmer:wght@400;600&display=swap" rel="stylesheet">
   <style>
-    /* ===== Base ===== */
+    /* =====================
+       Base & Theme (namespaced)
+       ===================== */
     :root{--bg:#0f172a; --bg2:#0b1225; --text:#e5e7eb; --muted:#94a3b8; --accent:#22d3ee; --accent2:#a78bfa; --ring:#334155}
     *{box-sizing:border-box}
     html,body{margin:0;padding:0;background:linear-gradient(180deg,var(--bg),#050a19);color:var(--text);font-family:Inter,system-ui,-apple-system,Segoe UI,Roboto,"Noto Sans Khmer",Arial,sans-serif}
     a{color:inherit;text-decoration:none}
     img{max-width:100%;display:block}
-    .container{max-width:1100px;margin:0 auto;padding:0 1rem}
+    .wrap{max-width:1100px;margin:0 auto;padding:0 1rem}
 
-    /* ===== Header ===== */
-    header{position:sticky;top:0;background:rgba(10,14,30,.8);backdrop-filter:blur(8px);border-bottom:1px solid rgba(255,255,255,.06);z-index:10}
-    .nav{display:flex;align-items:center;justify-content:space-between;gap:.75rem;padding:.8rem 0}
-    .brand{display:flex;align-items:center;gap:.6rem;font-weight:800}
-    .badge{font-size:.75rem;padding:.2rem .5rem;border:1px solid rgba(255,255,255,.08);border-radius:999px;color:var(--muted)}
-
-    /* language dropdown */
-    .lang-select-wrap{position:relative;display:flex;align-items:center}
-    .lang-select{appearance:none;-webkit-appearance:none;-moz-appearance:none;background:rgba(255,255,255,.02);border:1px solid rgba(255,255,255,.12);color:var(--text);padding:.52rem 1.9rem .52rem .7rem;border-radius:12px;font-weight:600}
-    .lang-select-wrap::after{content:'▾';position:absolute;right:.55rem;top:50%;transform:translateY(-50%);opacity:.7;pointer-events:none}
+    /* =====================
+       Header (hdr-*)
+       ===================== */
+    .hdr{position:sticky;top:0;background:rgba(10,14,30,.9);backdrop-filter:blur(8px);border-bottom:1px solid rgba(255,255,255,.06);z-index:20}
+    .hdr__row{display:flex;align-items:center;justify-content:space-between;gap:.75rem;padding:.8rem 0}
+    .hdr__brand{display:flex;align-items:center;gap:.6rem;font-weight:800;white-space:nowrap}
+    .hdr__badge{font-size:.75rem;padding:.2rem .5rem;border:1px solid rgba(255,255,255,.08);border-radius:999px;color:var(--muted)}
+    .hdr__selectWrap{position:relative;display:flex;align-items:center}
+    .hdr__select{appearance:none;-webkit-appearance:none;-moz-appearance:none;background:rgba(255,255,255,.02);border:1px solid rgba(255,255,255,.12);color:var(--text);padding:.52rem 1.9rem .52rem .7rem;border-radius:12px;font-weight:600}
+    .hdr__selectWrap::after{content:'▾';position:absolute;right:.55rem;top:50%;transform:translateY(-50%);opacity:.7;pointer-events:none}
     .sr-only{position:absolute;width:1px;height:1px;padding:0;margin:-1px;overflow:hidden;clip:rect(0,0,0,0);white-space:nowrap;border:0}
 
-    .cta{display:inline-flex;align-items:center;gap:.5rem;padding:.6rem .9rem;border-radius:12px;background:linear-gradient(90deg,var(--accent),var(--accent2));color:#03131a;font-weight:700}
-    .btn{display:inline-flex;align-items:center;gap:.5rem;padding:.55rem .8rem;border-radius:12px;border:1px solid rgba(255,255,255,.12);background:rgba(255,255,255,.02);font-weight:600}
-    .btn:hover{background:rgba(255,255,255,.06)}
-
-    /* ===== Hero ===== */
+    /* =====================
+       Hero (hero-*)
+       ===================== */
     .hero{position:relative;padding:5rem 0 2.5rem;border-bottom:1px solid rgba(255,255,255,.06)}
-    .hero-bg{position:absolute;inset:-24px -16px -24px -16px;background:linear-gradient(180deg,rgba(2,6,23,.82),rgba(2,6,23,.65)),url('images/hero-kampot.jpg') center/cover no-repeat;border-bottom-left-radius:22px;border-bottom-right-radius:22px;z-index:-1}
-    h1{font-size:clamp(1.9rem,5vw,3.1rem);margin:0 0 .6rem}
-    .lead{font-size:clamp(1rem,1.8vw,1.15rem);color:#cbd5e1;max-width:70ch}
-    .hero-cta{display:flex;gap:.6rem;margin-top:1rem;flex-wrap:wrap}
-    .hero-intro{display:flex;align-items:center;gap:.75rem}
-    .hero-intro .logo{width:112px;height:112px;border-radius:999px;flex:0 0 auto;box-shadow:0 2px 10px rgba(0,0,0,.25)}
+    .hero__bg{position:absolute;inset:-24px -16px -24px -16px;background:linear-gradient(180deg,rgba(2,6,23,.82),rgba(2,6,23,.65)),url('images/hero-kampot.jpg') center/cover no-repeat;border-bottom-left-radius:22px;border-bottom-right-radius:22px;z-index:-1}
+    .hero__intro{display:flex;align-items:center;gap:.9rem}
+    .hero__logo{width:112px;height:112px;border-radius:999px;flex:0 0 auto;box-shadow:0 2px 10px rgba(0,0,0,.25)}
+    .hero h1{font-size:clamp(1.9rem,5vw,3.1rem);margin:0}
+    .hero__lead{font-size:clamp(1rem,1.8vw,1.15rem);color:#cbd5e1;max-width:70ch;margin:.8rem 0 0}
+    .btn{display:inline-flex;align-items:center;gap:.5rem;padding:.6rem .9rem;border-radius:12px;border:1px solid rgba(255,255,255,.12);background:rgba(255,255,255,.02);font-weight:600}
+    .btn--primary{background:linear-gradient(90deg,var(--accent),var(--accent2));color:#03131a;border-color:transparent}
 
-    /* ===== Grid / Cards ===== */
-    .grid{display:grid;grid-template-columns:1fr;gap:1.1rem}
+    /* =====================
+       Tours (cards + grid)
+       ===================== */
+    .tours{display:grid;grid-template-columns:1fr;gap:1.1rem}
+    @media(min-width:840px){.tours{grid-template-columns:repeat(3,1fr)}}
     .card{background:linear-gradient(180deg,rgba(255,255,255,.03),rgba(255,255,255,.015));border:1px solid rgba(255,255,255,.06);border-radius:16px;overflow:hidden}
-    @media(min-width:840px){.grid{grid-template-columns:repeat(3,1fr)}}
-    .content{padding:1rem 1.1rem 1.25rem}
-    .title{font-size:1.25rem;font-weight:800;margin:0 0 .5rem}
-    .desc{color:var(--muted);font-size:.98rem}
+    .card__body{padding:1rem 1.1rem 1.25rem}
+    .card__title{font-size:1.25rem;font-weight:800;margin:0 0 .5rem}
+    .card__desc{color:var(--muted);font-size:.98rem}
     .inc{margin:.75rem 0 .5rem;padding-left:1rem}
     .inc li{margin:.25rem 0;color:#c7cdd8}
     .price{display:flex;align-items:center;justify-content:space-between;gap:1rem;margin-top:1rem;padding-top:.75rem;border-top:1px dashed var(--ring)}
     .price strong{font-size:1.3rem}
     .pill{padding:.35rem .6rem;border:1px solid rgba(255,255,255,.08);border-radius:999px;color:var(--muted);font-size:.8rem}
 
-    /* ===== Carousel (small & consistent) ===== */
-    .carousel{position:relative;aspect-ratio:16/10;background:#0a132b}
-    .track{display:flex;width:100%;height:100%;transition:transform .4s ease}
-    .slide{min-width:100%;height:100%;object-fit:cover}
-    .carousel .nav{position:absolute;top:50%;transform:translateY(-50%);width:38px;height:38px;display:grid;place-items:center;border-radius:999px;border:1px solid rgba(255,255,255,.2);background:rgba(0,0,0,.25);color:#fff;cursor:pointer}
-    .carousel .prev{left:10px}.carousel .next{right:10px}
-    .dots{position:absolute;left:50%;bottom:10px;transform:translateX(-50%);display:flex;gap:6px}
-    .dot{width:8px;height:8px;border-radius:999px;border:1px solid rgba(255,255,255,.6);background:transparent}
-    .dot[aria-current="true"]{background:#fff}
-    .price-badge{position:absolute;top:.6rem;right:.6rem;background:linear-gradient(90deg,var(--accent),var(--accent2));color:#02131a;font-weight:900;padding:.3rem .5rem;border-radius:10px;font-size:.85rem}
+    /* =====================
+       Carousel (crsl-*)
+       ===================== */
+    .crsl{position:relative;aspect-ratio:16/10;background:#0a132b}
+    .crsl__track{display:flex;width:100%;height:100%;transition:transform .4s ease}
+    .crsl__slide{min-width:100%;height:100%;object-fit:cover}
+    .crsl__btn{position:absolute;top:50%;transform:translateY(-50%);width:38px;height:38px;display:grid;place-items:center;border-radius:999px;border:1px solid rgba(255,255,255,.2);background:rgba(0,0,0,.25);color:#fff;cursor:pointer}
+    .crsl__btn--prev{left:10px}.crsl__btn--next{right:10px}
+    .crsl__dots{position:absolute;left:50%;bottom:10px;transform:translateX(-50%);display:flex;gap:6px}
+    .crsl__dot{width:8px;height:8px;border-radius:999px;border:1px solid rgba(255,255,255,.6);background:transparent}
+    .crsl__dot[aria-current="true"]{background:#fff}
+    .crsl__price{position:absolute;top:.6rem;right:.6rem;background:linear-gradient(90deg,var(--accent),var(--accent2));color:#02131a;font-weight:900;padding:.3rem .5rem;border-radius:10px;font-size:.85rem}
 
-    /* ===== Footer ===== */
+    /* =====================
+       Footer
+       ===================== */
     footer{margin-top:3rem;padding:2rem 0 3rem;color:var(--muted);border-top:1px solid rgba(255,255,255,.06)}
 
-    /* ===== Mobile ===== */
-    @media(max-width:640px){$1.hero-intro .logo{width:72px;height:72px}
-    }
-      header{background:var(--bg2);backdrop-filter:none}
-      header .nav{padding:.7rem 0}
-      .brand .badge{display:none}
-      .nav .cta{display:none}
-      .lang-select{padding:.45rem 1.8rem .45rem .6rem}
+    /* =====================
+       Floating WhatsApp
+       ===================== */
+    .waFloat{position:fixed; right:16px; bottom:16px; width:56px; height:56px; z-index:60; display:grid; place-items:center; border-radius:14px; box-shadow:0 12px 30px rgba(0,0,0,.35); background:transparent}
+    .waFloat img{width:100%; height:100%; object-fit:contain}
+
+    /* =====================
+       Mobile
+       ===================== */
+    @media(max-width:640px){
+      .wrap{padding:0 .9rem}
+      .hdr{background:var(--bg2);backdrop-filter:none}
+      .hdr__row{padding:.7rem 0}
+      .hdr__badge{display:none}
       .hero{padding:5.2rem 0 2rem}
-      .hero-bg{inset:-14px -12px -14px -12px;border-bottom-left-radius:18px;border-bottom-right-radius:18px}
-      .hero-cta .cta{flex:1 1 100%;justify-content:center}
-      /* Contact buttons full width */
+      .hero__bg{inset:-14px -12px -14px -12px;border-bottom-left-radius:18px;border-bottom-right-radius:18px}
+      .hero__logo{width:72px;height:72px}
+      .hero__cta .btn--primary{flex:1 1 100%;justify-content:center}
       .buttons .btn{flex:1 1 100%;justify-content:center}
-      /* anchor offset for sticky header */
-      #tours-heading{scroll-margin-top:84px}
+      #tours{scroll-margin-top:84px}
+      .waFloat{ right:12px; bottom:calc(12px + env(safe-area-inset-bottom)); width:64px; height:64px }
     }
 
     /* Reduced motion */
     @media(prefers-reduced-motion:reduce){*{animation:none!important;transition:none!important}}
   </style>
-  <style>
-    /* Floating WhatsApp button */
-    .wa-float{position:fixed; right:16px; bottom:16px; width:56px; height:56px; z-index:60; display:grid; place-items:center; border-radius:14px; box-shadow:0 12px 30px rgba(0,0,0,.35); background:transparent}
-    .wa-float img{width:100%; height:100%; object-fit:contain}
-    @media(max-width:640px){ .wa-float{ right:12px; bottom:calc(12px + env(safe-area-inset-bottom)); width:64px; height:64px } }
-  </style>
 </head>
 <body>
-  <header>
-    <div class="container nav">
-      <div class="brand">
+  <!-- Header -->
+  <header class="hdr">
+    <div class="wrap hdr__row">
+      <div class="hdr__brand">
         <svg width="28" height="28" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true"><path d="M4 10c0-2.761 2.239-5 5-5h6c2.761 0 5 2.239 5 5v4c0 2.761-2.239 5-5 5H9c-2.761 0-5-2.239-5-5v-4Z" stroke="#22d3ee" stroke-width="1.2"/><path d="M7 12h10M8.5 15H12" stroke="#a78bfa" stroke-width="1.2" stroke-linecap="round"/></svg>
         <span data-i18n="brand">TukTuk Tours with Sa</span>
-        <span class="badge" data-i18n="location">Kampot, Cambodia</span>
+        <span class="hdr__badge" data-i18n="location">Kampot, Cambodia</span>
       </div>
-      <div class="lang-select-wrap">
+      <div class="hdr__selectWrap">
         <label class="sr-only" for="lang">Language</label>
-        <select id="lang" class="lang-select" aria-label="Select language">
+        <select id="lang" class="hdr__select" aria-label="Select language">
           <option value="fr">Français</option>
           <option value="en">English</option>
           <option value="nl">Nederlands</option>
           <option value="de">Deutsch</option>
         </select>
       </div>
-      <a href="#contact" class="cta" data-i18n="nav_book">Book a Tour</a>
     </div>
   </header>
 
-  <main class="container">
+  <main class="wrap">
+    <!-- Hero -->
     <section class="hero">
-      
-      <div class="hero-intro">
-        <img src="images/sa.png" alt="Sa smiling with straw hat — logo" class="logo" width="56" height="56" />
-        <h1 data-i18n="hero_title">សូមស្វាគមន៍! Welcome to my TukTuk Tours</h1>
+      <div class="hero__bg" aria-hidden="true"></div>
+      <div class="hero__intro">
+        <img src="images/sa.png" alt="Sa smiling with straw hat — logo" class="hero__logo" width="112" height="112" />
+        <div>
+          <h1 data-i18n="hero_title">សូមស្វាគមន៍! Welcome to my TukTuk Tours</h1>
+          <p class="hero__lead" data-i18n="hero_lead">I’m Sa — a licensed guide and lifelong Kampot local. I run small, friendly tours to the places I love most: mangrove kayaking, secret waterfalls, pepper farms, salt fields, ancient caves, and more. If you like stories, nature, and calm views by the river, I’ve got you.</p>
+        </div>
       </div>
-      <p class="lead" data-i18n="hero_lead">I’m Sa — a licensed guide and lifelong Kampot local. I run small, friendly tours to the places I love most: mangrove kayaking, secret waterfalls, pepper farms, salt fields, ancient caves, and more. If you like stories, nature, and calm views by the river, I’ve got you.</p>
-      <div class="hero-cta">
-        <a href="#contact" class="cta" data-i18n="cta_book_me">Book with me</a>
-        <a href="#tours-heading" class="btn" data-i18n="cta_see_tours">See my tours</a>
+      <div class="hero__cta" style="margin-top:1rem; display:flex; gap:.6rem; flex-wrap:wrap">
+        <a href="#contact" class="btn btn--primary" data-i18n="cta_book_me">Book with me</a>
+        <a href="#tours" class="btn" data-i18n="cta_see_tours">See my tours</a>
       </div>
     </section>
 
-    <section aria-labelledby="tours-heading">
-      <h2 id="tours-heading" style="font-size:1.5rem;margin:1rem 0 1rem;font-weight:800" data-i18n="tours_heading">My Tours</h2>
-      <div class="grid">
+    <!-- Tours -->
+    <section aria-labelledby="tours" style="margin-top:1.2rem">
+      <h2 id="tours" style="font-size:1.5rem;margin:1rem 0 1rem;font-weight:800" data-i18n="tours_heading">My Tours</h2>
+      <div class="tours">
         <!-- Kayak -->
         <article class="card">
-          <div class="carousel" data-carousel aria-label="Kayak the Green Cathedral">
-            <button type="button" class="nav prev" data-carousel-prev aria-label="Previous photo">‹</button>
-            <div class="track" data-carousel-track>
-              <img class="slide" loading="lazy" src="images/green-cathedral-1.jpg" alt="Kayaking among mangroves" data-i18n-attr="alt" data-i18n="alt_green1">
-              <img class="slide" loading="lazy" src="images/green-cathedral-2.jpg" alt="Lotus crowns and calm canals" data-i18n-attr="alt" data-i18n="alt_green2">
-              <img class="slide" loading="lazy" src="images/green-cathedral-3.jpg" alt="Sandy beach lunch stop" data-i18n-attr="alt" data-i18n="alt_green3">
+          <div class="crsl" data-crsl aria-label="Kayak the Green Cathedral">
+            <button type="button" class="crsl__btn crsl__btn--prev" data-crsl-prev aria-label="Previous photo">‹</button>
+            <div class="crsl__track" data-crsl-track>
+              <img class="crsl__slide" loading="lazy" src="images/green-cathedral-1.jpg" alt="Kayaking among mangroves" data-i18n-attr="alt" data-i18n="alt_green1">
+              <img class="crsl__slide" loading="lazy" src="images/green-cathedral-2.jpg" alt="Lotus crowns and calm canals" data-i18n-attr="alt" data-i18n="alt_green2">
+              <img class="crsl__slide" loading="lazy" src="images/green-cathedral-3.jpg" alt="Sandy beach lunch stop" data-i18n-attr="alt" data-i18n="alt_green3">
             </div>
-            <button type="button" class="nav next" data-carousel-next aria-label="Next photo">›</button>
-            <div class="dots" data-carousel-dots></div>
-            <span class=\"price-badge\">$25</span>
+            <button type="button" class="crsl__btn crsl__btn--next" data-crsl-next aria-label="Next photo">›</button>
+            <div class="crsl__dots" data-crsl-dots></div>
+            <span class="crsl__price">$25</span>
           </div>
-          <div class="content">
-            <h3 class="title" data-i18n="tour_green_title">Kayak the Green Cathedral</h3>
-            <p class="desc" data-i18n="tour_green_desc">Join me for a kayaking trip through Kampot’s famous mangrove forests. I’ll explain the local fauna and flora, show you how to make lotus crowns, and more! We’ll end the day with a traditional Khmer lunch and a swim at a secluded sandy beach.</p>
+          <div class="card__body">
+            <h3 class="card__title" data-i18n="tour_green_title">Kayak the Green Cathedral</h3>
+            <p class="card__desc" data-i18n="tour_green_desc">Join me for a kayaking trip through Kampot’s famous mangrove forests. I’ll explain the local fauna and flora, show you how to make lotus crowns, and more! We’ll end the day with a traditional Khmer lunch and a swim at a secluded sandy beach.</p>
             <h4 style="margin:.9rem 0 .25rem;font-weight:700" data-i18n="includes">Tour Includes</h4>
             <ul class="inc">
               <li data-i18n="pick_drop">Pick up and drop off at your hotel</li>
@@ -157,26 +168,26 @@
               <li data-i18n="khmer_lunch">Traditional Khmer Lunch</li>
               <li data-i18n="drinks">Drinks</li>
             </ul>
-            <div class="price"><div><span class="pill" data-i18n="per_person">Per person</span></div><strong><strong>$25</strong></div>
+            <div class="price"><div><span class="pill" data-i18n="per_person">Per person</span></div><strong>$25</strong></div>
           </div>
         </article>
 
         <!-- Waterfall -->
         <article class="card">
-          <div class="carousel" data-carousel aria-label="Hidden Waterfall Tour">
-            <button type="button" class="nav prev" data-carousel-prev aria-label="Previous photo">‹</button>
-            <div class="track" data-carousel-track>
-              <img class="slide" loading="lazy" src="images/hidden-waterfall-1.jpg" alt="Jungle trail to the waterfall" data-i18n-attr="alt" data-i18n="alt_waterfall1">
-              <img class="slide" loading="lazy" src="images/hidden-waterfall-2.jpg" alt="Viel Pouch Waterfall pool" data-i18n-attr="alt" data-i18n="alt_waterfall2">
-              <img class="slide" loading="lazy" src="images/hidden-waterfall-3.jpg" alt="Fresh fruit break by the river" data-i18n-attr="alt" data-i18n="alt_waterfall3">
+          <div class="crsl" data-crsl aria-label="Hidden Waterfall Tour">
+            <button type="button" class="crsl__btn crsl__btn--prev" data-crsl-prev aria-label="Previous photo">‹</button>
+            <div class="crsl__track" data-crsl-track>
+              <img class="crsl__slide" loading="lazy" src="images/hidden-waterfall-1.jpg" alt="Jungle trail to the waterfall" data-i18n-attr="alt" data-i18n="alt_waterfall1">
+              <img class="crsl__slide" loading="lazy" src="images/hidden-waterfall-2.jpg" alt="Viel Pouch Waterfall pool" data-i18n-attr="alt" data-i18n="alt_waterfall2">
+              <img class="crsl__slide" loading="lazy" src="images/hidden-waterfall-3.jpg" alt="Fresh fruit break by the river" data-i18n-attr="alt" data-i18n="alt_waterfall3">
             </div>
-            <button type="button" class="nav next" data-carousel-next aria-label="Next photo">›</button>
-            <div class="dots" data-carousel-dots></div>
-            <span class="price-badge">$35</span>
+            <button type="button" class="crsl__btn crsl__btn--next" data-crsl-next aria-label="Next photo">›</button>
+            <div class="crsl__dots" data-crsl-dots></div>
+            <span class="crsl__price">$35</span>
           </div>
-          <div class="content">
-            <h3 class="title" data-i18n="tour_waterfall_title">Hidden Waterfall Tour</h3>
-            <p class="desc" data-i18n="tour_waterfall_desc">Escape the city and join me on a guided jungle hike to the Viel Pouch Waterfall. Along the way, I’ll point out local plants and wildlife and share my knowledge of the forest. Cool off with a swim, enjoy fresh fruit and drinks, and experience a quiet side of Kampot many visitors miss.</p>
+          <div class="card__body">
+            <h3 class="card__title" data-i18n="tour_waterfall_title">Hidden Waterfall Tour</h3>
+            <p class="card__desc" data-i18n="tour_waterfall_desc">Escape the city and join me on a guided jungle hike to the Viel Pouch Waterfall. Along the way, I’ll point out local plants and wildlife and share my knowledge of the forest. Cool off with a swim, enjoy fresh fruit and drinks, and experience a quiet side of Kampot many visitors miss.</p>
             <h4 style="margin:.9rem 0 .25rem;font-weight:700" data-i18n="includes">Tour Includes</h4>
             <ul class="inc">
               <li data-i18n="pick_drop">Pick up and drop off at your hotel</li>
@@ -188,20 +199,20 @@
 
         <!-- Grand tour -->
         <article class="card">
-          <div class="carousel" data-carousel aria-label="Kampot Grand Tour">
-            <button type="button" class="nav prev" data-carousel-prev aria-label="Previous photo">‹</button>
-            <div class="track" data-carousel-track>
-              <img class="slide" loading="lazy" src="images/grand-tour-1.jpg" alt="Salt fields near Kampot" data-i18n-attr="alt" data-i18n="alt_grand1">
-              <img class="slide" loading="lazy" src="images/grand-tour-2.jpg" alt="Pepper vines at the farm" data-i18n-attr="alt" data-i18n="alt_grand2">
-              <img class="slide" loading="lazy" src="images/grand-tour-3.jpg" alt="Ancient cave entrance" data-i18n-attr="alt" data-i18n="alt_grand3">
+          <div class="crsl" data-crsl aria-label="Kampot Grand Tour">
+            <button type="button" class="crsl__btn crsl__btn--prev" data-crsl-prev aria-label="Previous photo">‹</button>
+            <div class="crsl__track" data-crsl-track>
+              <img class="crsl__slide" loading="lazy" src="images/grand-tour-1.jpg" alt="Salt fields near Kampot" data-i18n-attr="alt" data-i18n="alt_grand1">
+              <img class="crsl__slide" loading="lazy" src="images/grand-tour-2.jpg" alt="Pepper vines at the farm" data-i18n-attr="alt" data-i18n="alt_grand2">
+              <img class="crsl__slide" loading="lazy" src="images/grand-tour-3.jpg" alt="Ancient cave entrance" data-i18n-attr="alt" data-i18n="alt_grand3">
             </div>
-            <button type="button" class="nav next" data-carousel-next aria-label="Next photo">›</button>
-            <div class="dots" data-carousel-dots></div>
-            <span class="price-badge">$45</span>
+            <button type="button" class="crsl__btn crsl__btn--next" data-crsl-next aria-label="Next photo">›</button>
+            <div class="crsl__dots" data-crsl-dots></div>
+            <span class="crsl__price">$45</span>
           </div>
-          <div class="content">
-            <h3 class="title" data-i18n="tour_grand_title">Kampot Grand Tour</h3>
-            <p class="desc" data-i18n="tour_grand_desc">Limited for time? Want to make the most of it? My Grand Tour will take you to the major tourist attractions in Kampot in a single day. Sit back, relax, and see everything Kampot has to offer!</p>
+          <div class="card__body">
+            <h3 class="card__title" data-i18n="tour_grand_title">Kampot Grand Tour</h3>
+            <p class="card__desc" data-i18n="tour_grand_desc">Limited for time? Want to make the most of it? My Grand Tour will take you to the major tourist attractions in Kampot in a single day. Sit back, relax, and see everything Kampot has to offer!</p>
             <h4 style="margin:.9rem 0 .25rem;font-weight:700" data-i18n="includes">Tour Includes</h4>
             <ul class="inc">
               <li data-i18n="pick_drop">Pick up and drop off at your hotel</li>
@@ -218,48 +229,42 @@
       </div>
     </section>
 
-    <!-- Testimonials (kept minimal) -->
+    <!-- Testimonials (minimal) -->
     <section aria-label="Traveler reviews">
       <h2 style="font-size:1.5rem;font-weight:800;margin:1rem 0" data-i18n="testimonials_heading">What travelers say</h2>
-      <div class="grid">
-        <div class="card" style="grid-column:span 12;padding:1rem 1.1rem">
-          <p class="desc" data-i18n="quote1">“Sa is the best guide in Kampot. Friendly, funny, and full of stories.” — Alice, UK</p>
-          <p class="desc" data-i18n="quote2">“The kayak route through the mangroves was stunning. We learned so much.” — Marco, IT</p>
-          <p class="desc" data-i18n="quote3">“Grand Tour was perfect for one day. Pepper farm + caves + sunset = wow.” — Linh, VN</p>
-        </div>
+      <div class="card" style="padding:1rem 1.1rem">
+        <p class="card__desc" data-i18n="quote1">“Sa is the best guide in Kampot. Friendly, funny, and full of stories.” — Alice, UK</p>
+        <p class="card__desc" data-i18n="quote2">“The kayak route through the mangroves was stunning. We learned so much.” — Marco, IT</p>
+        <p class="card__desc" data-i18n="quote3">“Grand Tour was perfect for one day. Pepper farm + caves + sunset = wow.” — Linh, VN</p>
       </div>
     </section>
 
     <!-- FAQ -->
     <section style="margin-top:2rem">
       <h2 style="font-size:1.5rem;font-weight:800;margin:1rem 0" data-i18n="faqs">FAQs</h2>
-      <details><summary data-i18n="faq_book_q">How do I book?</summary><div class="desc" data-i18n="faq_book_a">Use WhatsApp, Facebook, or email below. Tell me your dates and which tour you want. I’ll confirm quickly.</div></details>
-      <details><summary data-i18n="faq_bring_q">What should I bring?</summary><div class="desc" data-i18n="faq_bring_a">Sunblock, hat, swimwear for kayaking/waterfall, and comfortable shoes for walking. I provide water and fruit.</div></details>
-      <details><summary data-i18n="faq_english_q">Is English OK?</summary><div class="desc" data-i18n="faq_english_a">Yes! I speak excellent English and I’m happy to explain local culture and history.</div></details>
+      <details><summary data-i18n="faq_book_q">How do I book?</summary><div class="card__desc" data-i18n="faq_book_a">Use WhatsApp, Facebook, or email below. Tell me your dates and which tour you want. I’ll confirm quickly.</div></details>
+      <details><summary data-i18n="faq_bring_q">What should I bring?</summary><div class="card__desc" data-i18n="faq_bring_a">Sunblock, hat, swimwear for kayaking/waterfall, and comfortable shoes for walking. I provide water and fruit.</div></details>
+      <details><summary data-i18n="faq_english_q">Is English OK?</summary><div class="card__desc" data-i18n="faq_english_a">Yes! I speak excellent English and I’m happy to explain local culture and history.</div></details>
     </section>
 
     <!-- About -->
     <section id="about" style="margin-top:2.5rem">
-      <div class="grid">
-        <div class="card" style="grid-column:span 12;padding:1.1rem 1.1rem 1.25rem">
-          <h2 style="font-size:1.25rem;font-weight:800;margin:.25rem 0 .5rem" data-i18n="about_heading">About Me</h2>
-          <p class="desc" style="margin:0" data-i18n="about_text">I’m not just a tuktuk driver. I am a fully certified Cambodian tour guide with over 10 years of experience. I grew up in Kampot and speak excellent English. I don’t just drop you off and wait—I join you for the whole experience, sharing the history, stories, and details behind each place in a way that is easy to understand and fun to hear. My enthusiasm, humor, and deep local knowledge make me one of the best guides in Kampot.</p>
-        </div>
+      <div class="card" style="padding:1.1rem 1.1rem 1.25rem">
+        <h2 style="font-size:1.25rem;font-weight:800;margin:.25rem 0 .5rem" data-i18n="about_heading">About Me</h2>
+        <p class="card__desc" style="margin:0" data-i18n="about_text">I’m not just a tuktuk driver. I am a fully certified Cambodian tour guide with over 10 years of experience. I grew up in Kampot and speak excellent English. I don’t just drop you off and wait—I join you for the whole experience, sharing the history, stories, and details behind each place in a way that is easy to understand and fun to hear. My enthusiasm, humor, and deep local knowledge make me one of the best guides in Kampot.</p>
       </div>
     </section>
 
     <!-- Contact -->
     <section id="contact" style="margin-top:2.5rem">
-      <div class="grid">
-        <div class="card" style="grid-column:span 12;padding:1.1rem 1.1rem 1.25rem">
-          <h2 style="font-size:1.25rem;font-weight:800;margin:.25rem 0 .5rem" data-i18n="contact_heading">Book a Tour</h2>
-          <p class="desc" data-i18n="contact_note">Choose what works for you below. Replace placeholders with my real contact details before publishing.</p>
-          <div class="buttons" style="margin-top:.75rem;display:flex;gap:.5rem;flex-wrap:wrap">
-            <a class="btn" data-i18n="btn_email" href="mailto:bookings@example.com?subject=Tour%20booking%20-%20Sa%27s%20Tours&body=Hi%20Sa%2C%0A%0AI%E2%80%99d%20like%20to%20book%20a%20tour.%20Here%20are%20the%20details%3A%0A%E2%80%A2%20Tour%3A%20%5BKayak%20%2F%20Waterfall%20%2F%20Grand%5D%0A%E2%80%A2%20Date%3A%20%0A%E2%80%A2%20Number%20of%20people%3A%20%0A%E2%80%A2%20Hotel%3A%20%0A%0AThanks!">Email</a>
-            <a class="btn" data-i18n="btn_whatsapp" href="https://wa.me/85500000000" target="_blank" rel="noopener">WhatsApp</a>
-            <a class="btn" data-i18n="btn_call" href="tel:+85500000000">Call</a>
-            <a class="btn" data-i18n="btn_facebook" href="https://www.facebook.com/yourpage" target="_blank" rel="noopener">Facebook</a>
-          </div>
+      <div class="card" style="padding:1.1rem 1.1rem 1.25rem">
+        <h2 style="font-size:1.25rem;font-weight:800;margin:.25rem 0 .5rem" data-i18n="contact_heading">Book a Tour</h2>
+        <p class="card__desc" data-i18n="contact_note">Choose what works for you below. Replace placeholders with my real contact details before publishing.</p>
+        <div class="buttons" style="margin-top:.75rem;display:flex;gap:.5rem;flex-wrap:wrap">
+          <a class="btn" data-i18n="btn_email" href="mailto:bookings@example.com?subject=Tour%20booking%20-%20Sa%27s%20Tours&body=Hi%20Sa%2C%0A%0AI%E2%80%99d%20like%20to%20book%20a%20tour.%20Here%20are%20the%20details%3A%0A%E2%80%A2%20Tour%3A%20%5BKayak%20%2F%20Waterfall%20%2F%20Grand%5D%0A%E2%80%A2%20Date%3A%20%0A%E2%80%A2%20Number%20of%20people%3A%20%0A%E2%80%A2%20Hotel%3A%20%0A%0AThanks!">Email</a>
+          <a class="btn" data-i18n="btn_whatsapp" href="https://wa.me/85500000000" target="_blank" rel="noopener">WhatsApp</a>
+          <a class="btn" data-i18n="btn_call" href="tel:+85500000000">Call</a>
+          <a class="btn" data-i18n="btn_facebook" href="https://www.facebook.com/yourpage" target="_blank" rel="noopener">Facebook</a>
         </div>
       </div>
     </section>
@@ -267,7 +272,7 @@
   </main>
 
   <footer>
-    <div class="container">
+    <div class="wrap">
       <div style="display:flex;justify-content:space-between;gap:1rem;flex-wrap:wrap">
         <div>
           <strong data-i18n="brand">TukTuk Tours with Sa</strong>
@@ -278,35 +283,40 @@
     </div>
   </footer>
 
+  <!-- Floating WhatsApp -->
+  <a class="waFloat" href="https://wa.me/85500000000" target="_blank" rel="noopener" data-i18n-attr="aria-label" data-i18n="wa_label" aria-label="Chat on WhatsApp" title="WhatsApp">
+    <img src="images/whatsapp.jpg" alt="WhatsApp" width="64" height="64" />
+  </a>
+
   <script>
     // Year
     document.getElementById('y').textContent = new Date().getFullYear();
 
-    // Small, accessible carousel
-    document.querySelectorAll('[data-carousel]').forEach(c=>{
-      const track=c.querySelector('[data-carousel-track]');
+    // Lightweight carousel (namespaced)
+    document.querySelectorAll('[data-crsl]').forEach(c=>{
+      const track=c.querySelector('[data-crsl-track]');
       const slides=[...track.children];
-      const prev=c.querySelector('[data-carousel-prev]');
-      const next=c.querySelector('[data-carousel-next]');
-      const dotsWrap=c.querySelector('[data-carousel-dots]');
-      let i=0; slides.forEach((_,idx)=>{const b=document.createElement('button');b.className='dot';b.setAttribute('aria-label','Go to slide '+(idx+1));b.onclick=()=>go(idx);dotsWrap.appendChild(b)});
-      function update(){track.style.transform='translateX('+(-i*100)+'%)';dotsWrap.querySelectorAll('.dot').forEach((d,idx)=>d.setAttribute('aria-current',idx===i?'true':'false'));}
+      const prev=c.querySelector('[data-crsl-prev]');
+      const next=c.querySelector('[data-crsl-next]');
+      const dotsWrap=c.querySelector('[data-crsl-dots]');
+      let i=0; slides.forEach((_,idx)=>{const b=document.createElement('button');b.className='crsl__dot';b.setAttribute('aria-label','Go to slide '+(idx+1));b.onclick=()=>go(idx);dotsWrap.appendChild(b)});
+      function update(){track.style.transform='translateX('+(-i*100)+'%)';dotsWrap.querySelectorAll('.crsl__dot').forEach((d,idx)=>d.setAttribute('aria-current',idx===i?'true':'false'));}
       function go(n){i=(n+slides.length)%slides.length;update()}
-      prev.onclick=()=>go(i-1); next.onclick=()=>go(i+1);
+      prev.addEventListener('click',()=>go(i-1)); next.addEventListener('click',()=>go(i+1));
       let startX=null; track.addEventListener('touchstart',e=>{startX=e.touches[0].clientX},{passive:true});
       track.addEventListener('touchmove',e=>{if(startX===null)return;const dx=e.touches[0].clientX-startX;if(Math.abs(dx)>40){go(i+(dx<0?1:-1));startX=null}}, {passive:true});
       track.addEventListener('touchend',()=>{startX=null}); update();
     });
 
-    // i18n dictionaries: FR + EN; NL/DE use EN text for now
+    // ===== i18n (FR + EN; DE/NL show EN text but keep chosen lang) =====
     const I18N={
       fr:{
         _title:'TukTuk Tours avec Sa • Kampot, Cambodge',
         _description:'Visites en tuktuk avec Sa à Kampot : kayak dans la Cathédrale Verte, cascade cachée, Grand Tour. Réservations faciles.',
-        brand:'TukTuk Tours avec Sa',location:'Kampot, Cambodge',nav_book:'Réserver',
+        brand:'TukTuk Tours avec Sa',location:'Kampot, Cambodge',
         hero_title:'សូមស្វាគមន៍ ! Bienvenue à mes TukTuk Tours',
         hero_lead:'Je m\'appelle Sa — guide certifié et enfant de Kampot. J\'organise de petites visites conviviales vers les lieux que j\'aime : kayak dans les mangroves, cascades secrètes, fermes de poivre, salines, grottes anciennes, et plus encore.',
-        cta_book_me:'Réserver avec moi',cta_see_tours:'Voir mes visites',
+        cta_book_me:'Réserver avec moi',cta_see_tours:'Voir mes visites',nav_book:'Réserver',
         tours_heading:'Mes visites',
         tour_green_title:'Kayak dans la Cathédrale Verte',
         tour_green_desc:'Partez avec moi en kayak à travers les mangroves de Kampot. Je vous présenterai la faune et la flore locales, je vous apprendrai à faire des couronnes de lotus, etc. Nous terminerons par un déjeuner khmer traditionnel et une baignade sur une plage de sable tranquille.',
@@ -329,18 +339,19 @@
         about_text:'Je ne suis pas seulement conducteur de tuktuk. Je suis guide cambodgien certifié avec plus de 10 ans d\'expérience. J\'ai grandi à Kampot et je parle très bien anglais. Je ne vous dépose pas pour attendre — je vous accompagne tout au long de l\'expérience, avec des histoires et des explications claires et amusantes. Mon enthousiasme et ma connaissance locale font de moi l\'un des meilleurs guides de Kampot.',
         contact_heading:'Réserver une visite',contact_note:'Choisissez le moyen qui vous convient. Remplacez les coordonnées de démonstration par les miennes avant publication.',
         btn_email:'E‑mail',btn_whatsapp:'WhatsApp',btn_call:'Appeler',btn_facebook:'Facebook',rights:'Tous droits réservés.',
-        wa_label:'Discuter sur WhatsApp',
         alt_green1:'Kayak parmi les mangroves',alt_green2:'Couronnes de lotus et canaux calmes',alt_green3:'Déjeuner sur une plage de sable tranquille',
         alt_waterfall1:'Sentier de jungle vers la cascade',alt_waterfall2:'Bassin de la cascade de Viel Pouch',alt_waterfall3:'Pause fruits frais au bord de la rivière',
-        alt_grand1:'Salines près de Kampot',alt_grand2:'Vignes de poivre à la ferme',alt_grand3:'Entrée d’une grotte ancienne'
+        alt_grand1:'Salines près de Kampot',alt_grand2:'Vignes de poivre à la ferme',alt_grand3:'Entrée d’une grotte ancienne',
+        brand_footer:'TukTuk Tours avec Sa',
+        wa_label:'Discuter sur WhatsApp'
       },
       en:{
         _title:'Sa’s TukTuk Tours • Kampot, Cambodia',
         _description:'TukTuk Tours with Sa – Kampot. Simple, affordable tours: Kayak the Green Cathedral, Hidden Waterfall, and the Kampot Grand Tour.',
-        brand:'TukTuk Tours with Sa',location:'Kampot, Cambodia',nav_book:'Book a Tour',
+        brand:'TukTuk Tours with Sa',location:'Kampot, Cambodia',
         hero_title:'សូមស្វាគមន៍! Welcome to my TukTuk Tours',
         hero_lead:'I’m Sa — a licensed guide and lifelong Kampot local. I run small, friendly tours to the places I love most: mangrove kayaking, secret waterfalls, pepper farms, salt fields, ancient caves, and more. If you like stories, nature, and calm views by the river, I’ve got you.',
-        cta_book_me:'Book with me',cta_see_tours:'See my tours',
+        cta_book_me:'Book with me',cta_see_tours:'See my tours',nav_book:'Book a Tour',
         tours_heading:'My Tours',
         tour_green_title:'Kayak the Green Cathedral',
         tour_green_desc:'Join me for a kayaking trip through Kampot’s famous mangrove forests. I’ll explain the local fauna and flora, show you how to make lotus crowns, and more! We’ll end the day with a traditional Khmer lunch and a swim at a secluded sandy beach.',
@@ -363,26 +374,21 @@
         about_text:'I’m not just a tuktuk driver. I am a fully certified Cambodian tour guide with over 10 years of experience. I grew up in Kampot and speak excellent English. I don’t just drop you off and wait—I join you for the whole experience, sharing the history, stories, and details behind each place in a way that is easy to understand and fun to hear. My enthusiasm, humor, and deep local knowledge make me one of the best guides in Kampot.',
         contact_heading:'Book a Tour',contact_note:'Choose what works for you below. Replace placeholders with my real contact details before publishing.',
         btn_email:'Email',btn_whatsapp:'WhatsApp',btn_call:'Call',btn_facebook:'Facebook',rights:'All rights reserved.',
-        wa_label:'Chat on WhatsApp',
         alt_green1:'Kayaking among mangroves',alt_green2:'Lotus crowns and calm canals',alt_green3:'Sandy beach lunch stop',
         alt_waterfall1:'Jungle trail to the waterfall',alt_waterfall2:'Viel Pouch Waterfall pool',alt_waterfall3:'Fresh fruit break by the river',
-        alt_grand1:'Salt fields near Kampot',alt_grand2:'Pepper vines at the farm',alt_grand3:'Ancient cave entrance'
+        alt_grand1:'Salt fields near Kampot',alt_grand2:'Pepper vines at the farm',alt_grand3:'Ancient cave entrance',
+        brand_footer:'TukTuk Tours with Sa',
+        wa_label:'Chat on WhatsApp'
       }
     };
 
-    // i18n helpers
     function setLang(lang){
-      // Unknown languages (de/nl for now) show EN text but keep chosen lang for <html>
       const display = I18N[lang] ? lang : (String(lang).toLowerCase().startsWith('fr') ? 'fr':'en');
       const dict = I18N[display];
       document.documentElement.lang = lang;
-
       document.querySelectorAll('[data-i18n]').forEach(el=>{const k=el.dataset.i18n; if(dict[k]!==undefined) el.textContent=dict[k];});
       document.querySelectorAll('[data-i18n-attr]').forEach(el=>{const k=el.dataset.i18n; const a=el.dataset.i18nAttr; if(dict[k]!==undefined) el.setAttribute(a,dict[k]);});
-
       if(dict._title) document.title = dict._title; const md=document.querySelector('meta[name="description"]'); if(md && dict._description) md.setAttribute('content', dict._description);
-
-      // persist & sync dropdown
       try{ localStorage.setItem('lang', lang); }catch(e){}
       const sel=document.getElementById('lang'); if(sel && sel.value!==lang) sel.value=lang;
     }
@@ -398,11 +404,7 @@
     else if(String(guess).toLowerCase().startsWith('nl')){ initial='nl'; }
     setLang(initial);
 
-    // Dropdown change handler
     document.getElementById('lang').addEventListener('change', e=> setLang(e.target.value));
   </script>
-  <a class="wa-float" href="https://wa.me/85500000000" target="_blank" rel="noopener" data-i18n-attr="aria-label" data-i18n="wa_label" aria-label="Chat on WhatsApp" title="WhatsApp">
-    <img src="images/whatsapp.png" alt="WhatsApp" width="64" height="64" />
-  </a>
 </body>
 </html>
