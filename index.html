@@ -43,9 +43,9 @@
     .hero-intro .logo{width:112px;height:112px;border-radius:999px;flex:0 0 auto;box-shadow:0 2px 10px rgba(0,0,0,.25)}
 
     /* ===== Grid / Cards ===== */
-    .grid{display:grid;grid-template-columns:repeat(12,1fr);gap:1.1rem}
-    .card{grid-column:span 12;background:linear-gradient(180deg,rgba(255,255,255,.03),rgba(255,255,255,.015));border:1px solid rgba(255,255,255,.06);border-radius:16px;overflow:hidden}
-    @media(min-width:840px){.card{grid-column:span 4}}
+    .grid{display:grid;grid-template-columns:1fr;gap:1.1rem}
+    .card{background:linear-gradient(180deg,rgba(255,255,255,.03),rgba(255,255,255,.015));border:1px solid rgba(255,255,255,.06);border-radius:16px;overflow:hidden}
+    @media(min-width:840px){.grid{grid-template-columns:repeat(3,1fr)}}
     .content{padding:1rem 1.1rem 1.25rem}
     .title{font-size:1.25rem;font-weight:800;margin:0 0 .5rem}
     .desc{color:var(--muted);font-size:.98rem}
@@ -157,7 +157,7 @@
               <li data-i18n="khmer_lunch">Traditional Khmer Lunch</li>
               <li data-i18n="drinks">Drinks</li>
             </ul>
-            <div class="price"><div><span class="pill" data-i18n="per_person">Per person</span></div><strong>$25<\/strong></div>
+            <div class="price"><div><span class="pill" data-i18n="per_person">Per person</span></div><strong><strong>$25</strong></div>
           </div>
         </article>
 
