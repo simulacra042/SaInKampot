@@ -54,6 +54,13 @@
     .btn:hover{background:rgba(255,255,255,.06)}
   </style>
   <style>
+    /* Carousel styles */
+    .carousel{position:relative; width:100%; overflow:hidden; border-radius:14px}
+    .carousel img{width:100%; display:none; object-fit:cover}
+    .carousel img:first-child{display:block}
+    .carousel::after{content:"◀ ▶"; position:absolute; bottom:8px; right:8px; color:rgba(255,255,255,.7); font-size:.9rem;}
+  </style>
+  <style>
     /* ✨ Glow accents & motion */
     .blob{position:absolute; filter:blur(60px); opacity:.35; pointer-events:none}
     .blob.one{width:420px; height:420px; background:radial-gradient(circle at 30% 30%, #22d3ee, transparent 60%); top:-60px; left:-80px; animation: float 12s ease-in-out infinite}
@@ -125,6 +132,24 @@
       .blob{display:none}
     }
   </style>
+  <style>
+    /* 🎠 Reusable carousel styles */
+    .carousel{position:relative; aspect-ratio:16/10; border-radius:18px; overflow:hidden; background:#0a132b}
+    .carousel .track{display:flex; width:100%; height:100%; transition:transform .45s ease; will-change:transform}
+    .carousel .slide{min-width:100%; height:100%; object-fit:cover; display:block}
+    .carousel .nav{position:absolute; top:50%; transform:translateY(-50%); width:40px; height:40px; display:grid; place-items:center; border-radius:999px; border:1px solid rgba(255,255,255,.2); background:rgba(0,0,0,.25); color:#fff; cursor:pointer; user-select:none; backdrop-filter:blur(6px)}
+    .carousel .nav:hover{background:rgba(0,0,0,.35)}
+    .carousel .prev{left:10px}
+    .carousel .next{right:10px}
+    .carousel .dots{position:absolute; left:50%; bottom:10px; transform:translateX(-50%); display:flex; gap:6px}
+    .carousel .dot{width:8px; height:8px; border-radius:999px; border:1px solid rgba(255,255,255,.6); background:transparent}
+    .carousel .dot[aria-current="true"]{background:#fff}
+    .carousel .price-badge{z-index:2}
+
+    @media (max-width:640px){
+      .carousel .nav{width:36px; height:36px}
+    }
+  </style>
 </head>
 <body>
   <header>
@@ -158,8 +183,19 @@
       <h2 id="tours-heading" style="font-size:1.5rem; margin:1rem 0 1rem; font-weight:800">My Tours</h2>
       <div class="grid">
         <article class="card">
-          <div class="thumb" role="img" aria-label="Kayak the Green Cathedral"><span class="price-badge">$25</span><img loading="lazy" src="images/green-cathedral.jpg" alt="Kayak the Green Cathedral"/></div>
-          <div class="content">
+          <div class="carousel" data-carousel aria-label="Kayak the Green Cathedral">
+            <button class="nav prev" data-carousel-prev aria-label="Previous photo">‹</button>
+            <div class="track" data-carousel-track>
+              <img class="slide" loading="lazy" src="images/green-cathedral-1.jpg" alt="Kayaking among mangroves">
+              <img class="slide" loading="lazy" src="images/green-cathedral-2.jpg" alt="Lotus crowns and calm canals">
+              <img class="slide" loading="lazy" src="images/green-cathedral-3.jpg" alt="Sandy beach lunch stop">
+            </div>
+            <button class="nav next" data-carousel-next aria-label="Next photo">›</button>
+            <div class="dots" data-carousel-dots></div>
+            <span class="price-badge">$25</span>
+          </div>
+</div>
+<div class="content">
             <h3 class="title">Kayak the Green Cathedral</h3>
             <p class="desc">Join me for a kayaking trip through Kampot’s famous mangrove forests. I’ll explain the local fauna and flora, show you how to make lotus crowns, and more! We’ll end the day with a traditional Khmer lunch and a swim at a secluded sandy beach.</p>
             <h4 style="margin:.9rem 0 .25rem; font-weight:700">Tour Includes</h4>
@@ -177,8 +213,19 @@
         </article>
 
         <article class="card">
-          <div class="thumb" role="img" aria-label="Hidden Waterfall Tour"><span class="price-badge">$35</span><img loading="lazy" src="images/hidden-waterfall.jpg" alt="Hidden Waterfall Tour"/></div>
-          <div class="content">
+          <div class="carousel" data-carousel aria-label="Hidden Waterfall Tour">
+            <button class="nav prev" data-carousel-prev aria-label="Previous photo">‹</button>
+            <div class="track" data-carousel-track>
+              <img class="slide" loading="lazy" src="images/hidden-waterfall-1.jpg" alt="Jungle trail to the waterfall">
+              <img class="slide" loading="lazy" src="images/hidden-waterfall-2.jpg" alt="Viel Pouch Waterfall pool">
+              <img class="slide" loading="lazy" src="images/hidden-waterfall-3.jpg" alt="Fresh fruit break by the river">
+            </div>
+            <button class="nav next" data-carousel-next aria-label="Next photo">›</button>
+            <div class="dots" data-carousel-dots></div>
+            <span class="price-badge">$35</span>
+          </div>
+</div>
+<div class="content">
             <h3 class="title">Hidden Waterfall Tour</h3>
             <p class="desc">Escape the city and join me on a guided jungle hike to the Viel Pouch Waterfall. Along the way, I’ll point out local plants and wildlife and share my knowledge of the forest. Cool off with a swim, enjoy fresh fruit and drinks, and experience a quiet side of Kampot many visitors miss.</p>
             <h4 style="margin:.9rem 0 .25rem; font-weight:700">Tour Includes</h4>
@@ -194,8 +241,19 @@
         </article>
 
         <article class="card">
-          <div class="thumb" role="img" aria-label="Kampot Grand Tour"><span class="price-badge">$45</span><img loading="lazy" src="images/grand-tour.jpg" alt="Kampot Grand Tour"/></div>
-          <div class="content">
+          <div class="carousel" data-carousel aria-label="Kampot Grand Tour">
+            <button class="nav prev" data-carousel-prev aria-label="Previous photo">‹</button>
+            <div class="track" data-carousel-track>
+              <img class="slide" loading="lazy" src="images/grand-tour-1.jpg" alt="Salt fields near Kampot">
+              <img class="slide" loading="lazy" src="images/grand-tour-2.jpg" alt="Pepper vines at the farm">
+              <img class="slide" loading="lazy" src="images/grand-tour-3.jpg" alt="Ancient cave entrance">
+            </div>
+            <button class="nav next" data-carousel-next aria-label="Next photo">›</button>
+            <div class="dots" data-carousel-dots></div>
+            <span class="price-badge">$45</span>
+          </div>
+</div>
+<div class="content">
             <h3 class="title">Kampot Grand Tour</h3>
             <p class="desc">Limited for time? Want to make the most of it? My Grand Tour will take you to the major tourist attractions in Kampot in a single day. Sit back, relax, and see everything Kampot has to offer!</p>
             <h4 style="margin:.9rem 0 .25rem; font-weight:700">Tour Includes</h4>
@@ -286,6 +344,48 @@
       </div>
     </div>
   </footer>
-  <script>document.getElementById('y').textContent = new Date().getFullYear()</script>
+  <script>
+  document.getElementById('y').textContent = new Date().getFullYear();
+  // Minimal, accessible carousel logic (no libraries)
+  document.querySelectorAll('[data-carousel]').forEach(function(c){
+    const track = c.querySelector('[data-carousel-track]');
+    const slides = Array.from(track.children);
+    const prev = c.querySelector('[data-carousel-prev]');
+    const next = c.querySelector('[data-carousel-next]');
+    const dotsWrap = c.querySelector('[data-carousel-dots]');
+    let i = 0;
+
+    // dots
+    slides.forEach((_,idx)=>{
+      const b = document.createElement('button');
+      b.className='dot';
+      b.setAttribute('aria-label','Go to slide '+(idx+1));
+      b.addEventListener('click', ()=>go(idx));
+      dotsWrap.appendChild(b);
+    });
+
+    function update(){
+      track.style.transform = 'translateX(' + (-i*100) + '%)';
+      dotsWrap.querySelectorAll('.dot').forEach((d,idx)=>{
+        d.setAttribute('aria-current', idx===i ? 'true':'false');
+      });
+    }
+    function go(n){ i=(n+slides.length)%slides.length; update(); }
+    prev.addEventListener('click', ()=>go(i-1));
+    next.addEventListener('click', ()=>go(i+1));
+
+    // basic swipe
+    let startX=null;
+    track.addEventListener('touchstart',e=>{startX=e.touches[0].clientX},{passive:true});
+    track.addEventListener('touchmove',e=>{
+      if(startX===null) return;
+      const dx=e.touches[0].clientX-startX;
+      if(Math.abs(dx)>40){ go(i+(dx<0?1:-1)); startX=null; }
+    },{passive:true});
+    track.addEventListener('touchend',()=>{startX=null});
+
+    update();
+  });
+</script>
 </body>
 </html>
