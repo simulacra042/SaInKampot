@@ -1,4 +1,3 @@
-<<<<<<< HEAD
 // Utilities
 const $  = (sel, root = document) => root.querySelector(sel);
 const $$ = (sel, root = document) => Array.from(root.querySelectorAll(sel));
@@ -39,12 +38,12 @@ const I18N = (() => {
     const live = $("#live-region");
     if (live) { live.textContent = translations[current]?.language_changed || `Language: ${current}`; }
     // set select
-    const sel = $("#lang-select");
+    const sel = $("#lang");
     if (sel && sel.value !== current) sel.value = current;
   }
 
   function initSelector() {
-    const sel = $("#lang-select");
+    const sel = $("#lang");
     if (!sel) return;
     sel.value = current;
     sel.addEventListener("change", () => set(sel.value));
@@ -94,5 +93,3 @@ document.addEventListener("DOMContentLoaded", () => {
   I18N.initSelector();
   initCarousels();
 });
-=======
->>>>>>> parent of 7651e09 (added version)
