@@ -1,223 +1,149 @@
 <!doctype html>
-<html lang="en"> <!-- default to English -->
+<html lang="en">
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>Sa’s TukTuk Tours • Kampot, Cambodia</title>
-  <meta name="description" content="TukTuk Tours with Sa – Kampot. Simple, affordable tours: Kayak the Green Cathedral, Hidden Waterfall, and the Kampot Grand Tour." />
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;800&family=Noto+Sans+Khmer:wght@400;600&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="styles.css">
+  <title data-i18n="title">Sa’s TukTuk Tours • Kampot</title>
+
+  <!-- SEO -->
+  <meta name="description" content="Kayak the Green Cathedral, Viel Pouch Waterfall, and the Kampot Grand Tour with a friendly local tuktuk driver.">
+  <link rel="canonical" href="https://example.com/">
+  <!-- Open Graph / Twitter -->
+  <meta property="og:title" content="Sa’s TukTuk Tours • Kampot" />
+  <meta property="og:description" content="Kayak the Green Cathedral, Viel Pouch Waterfall, and the Kampot Grand Tour." />
+  <meta property="og:image" content="images/hero-kampot.jpg" />
+  <meta name="twitter:card" content="summary_large_image" />
+
+  <!-- Preload hero image for better LCP -->
+  <link rel="preload" as="image" href="images/hero-kampot.jpg"
+        imagesrcset="images/hero-kampot-800.jpg 800w, images/hero-kampot.jpg 1600w"
+        imagesizes="100vw">
+
+  <link rel="stylesheet" href="styles.css" />
+  <script defer src="js/app.js"></script>
 </head>
 <body>
-  <!-- Header -->
-  <header class="hdr">
-    <div class="wrap hdr__row">
-      <div class="hdr__brand">
-        <svg width="28" height="28" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true"><path d="M4 10c0-2.761 2.239-5 5-5h6c2.761 0 5 2.239 5 5v4c0 2.761-2.239 5-5 5H9c-2.761 0-5-2.239-5-5v-4Z" stroke="#22d3ee" stroke-width="1.2"/><path d="M7 12h10M8.5 15H12" stroke="#a78bfa" stroke-width="1.2" stroke-linecap="round"/></svg>
-        <span data-i18n="brand">TukTuk Tours with Sa</span>
-        <span class="hdr__badge" data-i18n="location">Kampot, Cambodia</span>
-      </div>
-      <div class="hdr__selectWrap">
-        <label class="sr-only" for="lang">Language</label>
-        <select id="lang" class="hdr__select" aria-label="Select language">
+  <header class="site-header">
+    <div class="wrap">
+      <div class="brand" data-i18n="brand">Sa’s TukTuk Tours</div>
+      <nav class="lang">
+        <label for="lang-select" class="sr-only" data-i18n="language_label">Language</label>
+        <select id="lang-select" aria-label="Language">
           <option value="en">English</option>
           <option value="fr">Français</option>
-          <option value="nl">Nederlands</option>
           <option value="de">Deutsch</option>
+          <option value="nl">Nederlands</option>
         </select>
-      </div>
+      </nav>
     </div>
   </header>
 
-  <main class="wrap">
-    <!-- Hero -->
-    <section class="hero">
-      <div class="hero__bg" aria-hidden="true"></div>
-      <div class="hero__intro">
-        <img src="images/sa.png" alt="Sa smiling with straw hat — logo" class="hero__logo" width="112" height="112" />
-        <div>
-          <h1 data-i18n="hero_title">សូមស្វាគមន៍! Welcome to my TukTuk Tours</h1>
-          <p class="hero__lead" data-i18n="hero_lead">I’m Sa — a licensed guide and lifelong Kampot local. I run small, friendly tours to the places I love most: mangrove kayaking, secret waterfalls, pepper farms, salt fields, ancient caves, and more. If you like stories, nature, and calm views by the river, I’ve got you.</p>
+  <section class="hero">
+    <div class="hero__bg" role="img" aria-label="Kampot riverside and palms at sunset"></div>
+    <div class="wrap hero__content">
+      <h1 data-i18n="hero_title">Kampot by TukTuk — easy, scenic, unforgettable</h1>
+      <p data-i18n="hero_sub">Kayaks, waterfalls, pepper farms, caves, and the best viewpoints — I’ll handle the logistics.</p>
+      <a class="btn btn--primary" href="#tours" data-i18n="cta_view_tours">View tours</a>
+    </div>
+  </section>
+
+  <main id="tours" class="wrap">
+    <h2 data-i18n="section_tours">Popular tours</h2>
+
+    <div class="cards">
+      <article class="card">
+        <picture>
+          <source srcset="images/green-cathedral-800.jpg 800w, images/green-cathedral.jpg 1600w" sizes="(max-width:768px) 100vw, 50vw">
+          <img loading="lazy" src="images/green-cathedral.jpg" alt="Kayaking under mangrove canopy">
+        </picture>
+        <div class="card__body">
+          <h3 data-i18n="tour_green_title">Green Cathedral Kayak</h3>
+          <p data-i18n="tour_green_desc">A calm morning paddle through mangroves and mirror water.</p>
+          <div class="price" data-i18n="tour_green_price">$18 / person</div>
+        </div>
+      </article>
+
+      <article class="card">
+        <picture>
+          <source srcset="images/viel-pouch-800.jpg 800w, images/viel-pouch.jpg 1600w" sizes="(max-width:768px) 100vw, 50vw">
+          <img loading="lazy" src="images/viel-pouch.jpg" alt="Viel Pouch Waterfall">
+        </picture>
+        <div class="card__body">
+          <h3 data-i18n="tour_waterfall_title">Viel Pouch Waterfall</h3>
+          <p data-i18n="tour_waterfall_desc">Short jungle walk to a cool, shaded waterfall and pools.</p>
+          <div class="price" data-i18n="tour_waterfall_price">$20 / person</div>
+        </div>
+      </article>
+
+      <article class="card">
+        <picture>
+          <source srcset="images/grand-tour-800.jpg 800w, images/grand-tour.jpg 1600w" sizes="(max-width:768px) 100vw, 50vw">
+          <img loading="lazy" src="images/grand-tour.jpg" alt="Countryside tuktuk ride">
+        </picture>
+        <div class="card__body">
+          <h3 data-i18n="tour_grand_title">Kampot Grand Tour</h3>
+          <p data-i18n="tour_grand_desc">Pepper farms, caves, salt fields, and river sunset — all in one day.</p>
+          <div class="price" data-i18n="tour_grand_price">$30 / person</div>
+        </div>
+      </article>
+    </div>
+
+    <div class="crsl" aria-roledescription="carousel">
+      <div class="crsl__track">
+        <div class="crsl__slide is-active">
+          <img loading="lazy" src="images/slide1.jpg" 
+               srcset="images/slide1-800.jpg 800w, images/slide1.jpg 1600w" sizes="100vw"
+               alt="Kayaks on the river">
+        </div>
+        <div class="crsl__slide">
+          <img loading="lazy" src="images/slide2.jpg" 
+               srcset="images/slide2-800.jpg 800w, images/slide2.jpg 1600w" sizes="100vw"
+               alt="Pepper farm rows">
+        </div>
+        <div class="crsl__slide">
+          <img loading="lazy" src="images/slide3.jpg" 
+               srcset="images/slide3-800.jpg 800w, images/slide3.jpg 1600w" sizes="100vw"
+               alt="Countryside road at golden hour">
         </div>
       </div>
-      <div class="hero__cta" style="margin-top:1rem; display:flex; gap:.6rem; flex-wrap:wrap">
-        <a href="#contact" class="btn btn--primary" data-i18n="cta_book_me">Book with me</a>
-        <a href="#tours" class="btn" data-i18n="cta_see_tours">See my tours</a>
+
+      <button class="crsl__btn crsl__btn--prev" aria-label="Previous slide">&larr;</button>
+      <button class="crsl__btn crsl__btn--next" aria-label="Next slide">&rarr;</button>
+
+      <div class="crsl__dots" role="tablist" aria-label="Slides">
+        <button class="crsl__dot is-active" role="tab" aria-selected="true" aria-controls="slide-1"><span class="sr-only">Slide 1</span></button>
+        <button class="crsl__dot" role="tab" aria-selected="false" aria-controls="slide-2"><span class="sr-only">Slide 2</span></button>
+        <button class="crsl__dot" role="tab" aria-selected="false" aria-controls="slide-3"><span class="sr-only">Slide 3</span></button>
       </div>
+    </div>
+
+    <section class="faq">
+      <h2 data-i18n="section_faq">FAQ</h2>
+      <details>
+        <summary data-i18n="faq_hotel">Do you pick up from hotels?</summary>
+        <p data-i18n="faq_hotel_ans">Yes — anywhere in Kampot town is fine. Just send me your location.</p>
+      </details>
+      <details>
+        <summary data-i18n="faq_payment">How do I pay?</summary>
+        <p data-i18n="faq_payment_ans">Cash in USD or KHR is fine. Card is not accepted.</p>
+      </details>
+      <details>
+        <summary data-i18n="faq_cancel">Cancellation policy?</summary>
+        <p data-i18n="faq_cancel_ans">Free cancellation up to the day before your tour.</p>
+      </details>
     </section>
-
-    <!-- Tours -->
-    <section aria-labelledby="tours" style="margin-top:1.2rem">
-      <h2 id="tours" style="font-size:1.5rem;margin:1rem 0 1rem;font-weight:800" data-i18n="tours_heading">My Tours</h2>
-      <div class="tours">
-        <!-- Kayak -->
-        <article class="card">
-          <div class="crsl" data-crsl aria-label="Kayak the Green Cathedral">
-            <button type="button" class="crsl__btn crsl__btn--prev" data-crsl-prev aria-label="Previous photo">‹</button>
-            <div class="crsl__track" data-crsl-track>
-              <img class="crsl__slide" loading="lazy" src="images/green-cathedral-1.jpg" alt="Kayaking among mangroves" data-i18n-attr="alt" data-i18n="alt_green1">
-              <img class="crsl__slide" loading="lazy" src="images/green-cathedral-2.jpg" alt="Lotus crowns and calm canals" data-i18n-attr="alt" data-i18n="alt_green2">
-              <img class="crsl__slide" loading="lazy" src="images/green-cathedral-3.jpg" alt="Sandy beach lunch stop" data-i18n-attr="alt" data-i18n="alt_green3">
-            </div>
-            <button type="button" class="crsl__btn crsl__btn--next" data-crsl-next aria-label="Next photo">›</button>
-            <div class="crsl__dots" data-crsl-dots></div>
-            <span class="crsl__price">$25</span>
-          </div>
-          <div class="card__body">
-            <h3 class="card__title" data-i18n="tour_green_title">Kayak the Green Cathedral</h3>
-            <p class="card__desc" data-i18n="tour_green_desc">Join me for a kayaking trip through Kampot’s famous mangrove forests...</p>
-            <h4 style="margin:.9rem 0 .25rem;font-weight:700" data-i18n="includes">Tour Includes</h4>
-            <ul class="inc">
-              <li data-i18n="pick_drop">Pick up and drop off at your hotel</li>
-              <li data-i18n="kayaks">Kayaks</li>
-              <li data-i18n="khmer_lunch">Traditional Khmer Lunch</li>
-              <li data-i18n="drinks">Drinks</li>
-            </ul>
-            <div class="price"><div><span class="pill" data-i18n="per_person">Per person</span></div><strong>$25</strong></div>
-          </div>
-        </article>
-
-        <!-- Waterfall -->
-        <article class="card">
-          <div class="crsl" data-crsl aria-label="Hidden Waterfall Tour">
-            <button type="button" class="crsl__btn crsl__btn--prev" data-crsl-prev aria-label="Previous photo">‹</button>
-            <div class="crsl__track" data-crsl-track>
-              <img class="crsl__slide" loading="lazy" src="images/hidden-waterfall-1.jpg" alt="Jungle trail to the waterfall" data-i18n-attr="alt" data-i18n="alt_waterfall1">
-              <img class="crsl__slide" loading="lazy" src="images/hidden-waterfall-2.jpg" alt="Viel Pouch Waterfall pool" data-i18n-attr="alt" data-i18n="alt_waterfall2">
-              <img class="crsl__slide" loading="lazy" src="images/hidden-waterfall-3.jpg" alt="Fresh fruit break by the river" data-i18n-attr="alt" data-i18n="alt_waterfall3">
-            </div>
-            <button type="button" class="crsl__btn crsl__btn--next" data-crsl-next aria-label="Next photo">›</button>
-            <div class="crsl__dots" data-crsl-dots></div>
-            <span class="crsl__price">$35</span>
-          </div>
-          <div class="card__body">
-            <h3 class="card__title" data-i18n="tour_waterfall_title">Hidden Waterfall Tour</h3>
-            <p class="card__desc" data-i18n="tour_waterfall_desc">Escape the city and join me on a guided jungle hike...</p>
-            <h4 style="margin:.9rem 0 .25rem;font-weight:700" data-i18n="includes">Tour Includes</h4>
-            <ul class="inc">
-              <li data-i18n="pick_drop">Pick up and drop off at your hotel</li>
-              <li data-i18n="fresh_fruit_drinks">Fresh fruit and drinks</li>
-            </ul>
-            <div class="price"><div><span class="pill" data-i18n="per_person">Per person</span></div><strong>$35</strong></div>
-          </div>
-        </article>
-
-        <!-- Grand tour -->
-        <article class="card">
-          <div class="crsl" data-crsl aria-label="Kampot Grand Tour">
-            <button type="button" class="crsl__btn crsl__btn--prev" data-crsl-prev aria-label="Previous photo">‹</button>
-            <div class="crsl__track" data-crsl-track>
-              <img class="crsl__slide" loading="lazy" src="images/grand-tour-1.jpg" alt="Salt fields near Kampot" data-i18n-attr="alt" data-i18n="alt_grand1">
-              <img class="crsl__slide" loading="lazy" src="images/grand-tour-2.jpg" alt="Pepper vines at the farm" data-i18n-attr="alt" data-i18n="alt_grand2">
-              <img class="crsl__slide" loading="lazy" src="images/grand-tour-3.jpg" alt="Ancient cave entrance" data-i18n-attr="alt" data-i18n="alt_grand3">
-            </div>
-            <button type="button" class="crsl__btn crsl__btn--next" data-crsl-next aria-label="Next photo">›</button>
-            <div class="crsl__dots" data-crsl-dots></div>
-            <span class="crsl__price">$45</span>
-          </div>
-          <div class="card__body">
-            <h3 class="card__title" data-i18n="tour_grand_title">Kampot Grand Tour</h3>
-            <p class="card__desc" data-i18n="tour_grand_desc">Limited for time? Want to make the most of it?...</p>
-            <h4 style="margin:.9rem 0 .25rem;font-weight:700" data-i18n="includes">Tour Includes</h4>
-            <ul class="inc">
-              <li data-i18n="pick_drop">Pick up and drop off at your hotel</li>
-              <li data-i18n="salt_fields">The Salt Fields</li>
-              <li data-i18n="pepper_farm">Visit to a Pepper Farm</li>
-              <li data-i18n="secret_lake">Stop off at Secret Lake</li>
-              <li data-i18n="caves">Explore local ancient caves</li>
-              <li data-i18n="kayak_green_again">Kayak the Green Cathedral</li>
-              <li data-i18n="khmer_lunch">Traditional Khmer Lunch</li>
-            </ul>
-            <div class="price"><div><span class="pill" data-i18n="per_person">Per person</span></div><strong>$45</strong></div>
-          </div>
-        </article>
-      </div>
-    </section>
-
-    <!-- Testimonials -->
-    <section aria-label="Traveler reviews">
-      <h2 style="font-size:1.5rem;font-weight:800;margin:1rem 0" data-i18n="testimonials_heading">What travelers say</h2>
-      <div class="card" style="padding:1rem 1.1rem">
-        <p class="card__desc" data-i18n="quote1">“Sa is the best guide in Kampot. Friendly, funny, and full of stories.” — Alice, UK</p>
-        <p class="card__desc" data-i18n="quote2">“The kayak route through the mangroves was stunning. We learned so much.” — Marco, IT</p>
-        <p class="card__desc" data-i18n="quote3">“Grand Tour was perfect for one day. Pepper farm + caves + sunset = wow.” — Linh, VN</p>
-      </div>
-    </section>
-
-    <!-- FAQ -->
-    <section class="faq" aria-labelledby="faq-heading">
-      <h2 id="faq-heading" style="font-size:1.5rem;font-weight:800;margin:1rem 0" data-i18n="faqs">FAQs</h2>
-      <div class="faq__list">
-        <details>
-          <summary data-i18n="faq_book_q">How do I book?</summary>
-          <div class="faq__content" data-i18n="faq_book_a">Use WhatsApp, Facebook, or email below. Tell me your dates and which tour you want. I’ll confirm quickly.</div>
-        </details>
-        <details>
-          <summary data-i18n="faq_bring_q">What should I bring?</summary>
-          <div class="faq__content" data-i18n="faq_bring_a">Sunblock, hat, swimwear for kayaking/waterfall, and comfortable shoes for walking. I provide water and fruit.</div>
-        </details>
-        <details>
-          <summary data-i18n="faq_english_q">Is English OK?</summary>
-          <div class="faq__content" data-i18n="faq_english_a">Yes! I speak excellent English and I’m happy to explain local culture and history.</div>
-        </details>
-        <details>
-          <summary data-i18n="faq_lang_q">What languages are offered?</summary>
-          <div class="faq__content" data-i18n="faq_lang_a">English and Khmer.</div>
-        </details>
-        <details>
-          <summary data-i18n="faq_group_q">Do you offer group rates?</summary>
-          <div class="faq__content" data-i18n="faq_group_a">Yes — get in touch and I’ll tailor a price for your group.</div>
-        </details>
-      </div>
-    </section>
-
-    <!-- About -->
-    <section id="about" style="margin-top:2.5rem">
-      <div class="card" style="padding:1.1rem 1.1rem 1.25rem">
-        <h2 style="font-size:1.25rem;font-weight:800;margin:.25rem 0 .5rem" data-i18n="about_heading">About Me</h2>
-        <p class="card__desc" style="margin:0" data-i18n="about_text">I’m not just a tuktuk driver. I am a fully certified Cambodian tour guide with over 10 years of experience...</p>
-      </div>
-    </section>
-
-    <!-- Contact -->
-    <section id="contact" style="margin-top:2.5rem">
-      <div class="card" style="padding:1.1rem 1.1rem 1.25rem">
-        <h2 style="font-size:1.25rem;font-weight:800;margin:.25rem 0 .5rem" data-i18n="contact_heading">Book a Tour</h2>
-        <p class="card__desc" data-i18n="contact_note">Choose what works for you below. Replace placeholders with my real contact details before publishing.</p>
-        <div class="buttons" style="margin-top:.75rem;display:flex;gap:.5rem;flex-wrap:wrap">
-          <a class="btn" data-i18n="btn_email" href="mailto:bookings@example.com?subject=Tour%20booking%20-%20Sa%27s%20Tours&body=Hi%20Sa%2C%0A%0AI%E2%80%99d%20like%20to%20book%20a%20tour.%20Here%20are%20the%20details%3A%0A%E2%80%A2%20Tour%3A%20%5BKayak%20%2F%20Waterfall%20%2F%20Grand%5D%0A%E2%80%A2%20Date%3A%20%0A%E2%80%A2%20Number%20of%20people%3A%20%0A%E2%80%A2%20Hotel%3A%20%0A%0AThanks!">Email</a>
-          <a class="btn" data-i18n="btn_whatsapp" href="https://wa.me/85500000000" target="_blank" rel="noopener">WhatsApp</a>
-          <a class="btn" data-i18n="btn_call" href="tel:+85500000000">Call</a>
-          <a class="btn" data-i18n="btn_facebook" href="https://www.facebook.com/yourpage" target="_blank" rel="noopener">Facebook</a>
-        </div>
-      </div>
-    </section>
-
   </main>
 
-  <footer>
+  <a class="whatsapp" href="https://wa.me/85500000000" target="_blank" rel="noopener" aria-label="Chat on WhatsApp">
+    <span aria-hidden="true">💬</span>
+  </a>
+
+  <footer class="site-footer">
     <div class="wrap">
-      <div style="display:flex;justify-content:space-between;gap:1rem;flex-wrap:wrap">
-        <div>
-          <strong data-i18n="brand">TukTuk Tours with Sa</strong>
-          <div style="color:var(--muted)" data-i18n="location">Kampot, Cambodia</div>
-        </div>
-        <div style="color:var(--muted)">© <span id="y"></span> <span data-i18n="brand">TukTuk Tours with Sa</span>. <span data-i18n="rights">All rights reserved.</span></div>
-      </div>
+      <small data-i18n="brand_footer">Sa’s TukTuk Tours • Kampot</small>
     </div>
   </footer>
 
-  <!-- Floating WhatsApp -->
-  <a class="waFloat" href="https://wa.me/85500000000" target="_blank"
-     rel="noopener"
-     data-i18n-attr="aria-label:wa_label"
-     aria-label="Chat on WhatsApp" title="WhatsApp">
-    <img src="images/whatsapp.png" alt="WhatsApp" width="64" height="64" />
-  </a>
-
-  <!-- NEW: external JS -->
-  <script defer src="js/app.js"></script>
+  <span class="sr-only" id="live-region" aria-live="polite"></span>
 </body>
 </html>
