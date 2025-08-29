@@ -53,37 +53,97 @@ const I18N = (() => {
 })();
 
 // Carousel
+
 function initCarousels(){
   $$(".crsl").forEach(c => {
-    const track = $(".crsl__track", c);
-    const slides = $$(".crsl__slide", c);
-    const prev = $(".crsl__btn--prev", c);
-    const next = $(".crsl__btn--next", c);
-    const dots = $$(".crsl__dot", c);
-    let i = slides.findIndex(s => s.classList.contains("is-active"));
+    const track = c.querySelector("[data-crsl-track]") || c.querySelector(".crsl__track");
+    const slides = Array.from(track ? track.querySelectorAll(".crsl__slide") : []);
+    const prev = c.querySelector("[data-crsl-prev]") || c.querySelector(".crsl__btn--prev");
+    const next = c.querySelector("[data-crsl-next]") || c.querySelector(".crsl__btn--next");
+    const dotsWrap = c.querySelector("[data-crsl-dots]") || c.querySelector(".crsl__dots");
+
+    if (!track || !slides.length) return;
+
+    // Create dots dynamically if none exist
+    let dots = [];
+    if (dotsWrap) {
+      dotsWrap.innerHTML = "";
+      slides.forEach((_, idx) => {
+        const b = document.createElement("button");
+        b.type = "button";
+        b.className = "crsl__dot";
+        b.setAttribute("aria-label", `Slide ${idx+1}`);
+        b.setAttribute("aria-current", "false");
+        dotsWrap.appendChild(b);
+        dots.push(b);
+      });
+    }
+
+    let i = Math.max(0, slides.findIndex(s => s.classList.contains("is-active")));
     if (i < 0) i = 0;
 
+    // core setter
     const setActive = (n) => {
       i = (n + slides.length) % slides.length;
       slides.forEach((s, idx) => s.classList.toggle("is-active", idx === i));
-      dots.forEach((d, idx) => {
-        d.classList.toggle("is-active", idx === i);
-        d.setAttribute("aria-selected", String(idx === i));
-      });
+      if (dots.length) {
+        dots.forEach((d, idx) => d.setAttribute("aria-current", idx === i ? "true" : "false"));
+      }
+      track.style.transition = "transform .45s ease";
       track.style.transform = `translateX(${-i * 100}%)`;
     };
 
-    prev.addEventListener("click", () => setActive(i - 1));
-    next.addEventListener("click", () => setActive(i + 1));
-    dots.forEach((d, idx) => d.addEventListener("click", () => setActive(idx)));
+    // button clicks
+    if (prev) prev.addEventListener("click", () => setActive(i - 1));
+    if (next) next.addEventListener("click", () => setActive(i + 1));
+    if (dots.length) dots.forEach((d, idx) => d.addEventListener("click", () => setActive(idx)));
 
-    // Keyboard support
+    // keyboard support
     c.setAttribute("tabindex","0");
     c.addEventListener("keydown", (e)=>{
-      if(e.key === "ArrowLeft") prev.click();
-      if(e.key === "ArrowRight") next.click();
+      if(e.key === "ArrowLeft") prev && prev.click();
+      if(e.key === "ArrowRight") next && next.click();
     });
 
+    // swipe via pointer events only (works for touch + pen + mouse)
+let startX = 0, currentX = 0, dragging = false;
+const threshold = 40; // px to trigger a slide
+const width = () => c.clientWidth || 1;
+
+const onPointerDown = (e) => {
+  if (e.pointerType === 'mouse' && e.button !== 0) return; // left button only
+  dragging = true;
+  startX = currentX = e.clientX;
+  track.style.transition = 'none';
+  try { c.setPointerCapture(e.pointerId); } catch(_) {}
+};
+const onPointerMove = (e) => {
+  if (!dragging) return;
+  currentX = e.clientX;
+  const delta = currentX - startX;
+  const pct = (delta / width()) * 100;
+  track.style.transform = `translateX(${-(i * 100) + pct}%)`;
+  e.preventDefault(); // tell the browser we're handling horizontal panning
+};
+const onPointerUp = (e) => {
+  if (!dragging) return;
+  dragging = false;
+  try { c.releasePointerCapture(e.pointerId); } catch(_) {}
+  const delta = currentX - startX;
+  if (Math.abs(delta) > threshold) {
+    setActive(delta < 0 ? i + 1 : i - 1);
+  } else {
+    track.style.transition = 'transform .3s ease';
+    track.style.transform = `translateX(${-i * 100}%)`;
+  }
+};
+
+c.addEventListener('pointerdown', onPointerDown);
+c.addEventListener('pointermove', onPointerMove, { passive: false });
+c.addEventListener('pointerup', onPointerUp);
+c.addEventListener('pointercancel', onPointerUp);
+
+// initialize
     setActive(i);
   });
 }
