@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 // Utilities
 const $  = (sel, root = document) => root.querySelector(sel);
 const $$ = (sel, root = document) => Array.from(root.querySelectorAll(sel));
@@ -93,3 +94,5 @@ document.addEventListener("DOMContentLoaded", () => {
   I18N.initSelector();
   initCarousels();
 });
+=======
+>>>>>>> parent of 7651e09 (added version)
