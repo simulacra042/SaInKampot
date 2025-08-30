@@ -270,3 +270,27 @@ footer{margin-top:3rem;padding:2rem 0 3rem;color:var(--muted);border-top:1px sol
   z-index: 9999;
 }
 .float-whatsapp img{ width: 28px; height: 28px; }
+
+
+/* ============== Language flag nav (robust) ============== */
+.lang-flags, .lang { display:flex; gap:.6rem; align-items:center; }
+.lang-flags a{ font-size:1.35rem; line-height:1; text-decoration:none; }
+
+/* Fallback: if old .lang markup with text labels is still present, show emoji via ::before and hide text */
+.lang a{ position:relative; font-size:0; line-height:1; }
+.lang a[href*="/en/"]::before{ content:"🇬🇧"; }
+.lang a[href*="/fr/"]::before{ content:"🇫🇷"; }
+.lang a[href*="/nl/"]::before{ content:"🇳🇱"; }
+.lang a[href*="/de/"]::before{ content:"🇩🇪"; }
+.lang a::before{ font-size:1.35rem; }
+@media (max-width: 640px){
+  .lang-flags a, .lang a::before{ font-size:1.25rem; }
+}
+
+
+/* === Emoji font fallback for flags === */
+.lang-flags a,
+.lang a::before {
+  font-family: "Apple Color Emoji", "Segoe UI Emoji", "Noto Color Emoji", system-ui, -apple-system, "Inter", "Noto Sans Khmer", Arial, sans-serif;
+  line-height: 1;
+}
