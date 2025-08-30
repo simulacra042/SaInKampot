@@ -210,3 +210,63 @@ footer{margin-top:3rem;padding:2rem 0 3rem;color:var(--muted);border-top:1px sol
   border-color: transparent;
   font-weight:900;
 }
+
+
+/* =============================
+   Carousels (final normalized)
+   ============================= */
+.crsl{
+  position: relative;
+  overflow: hidden;
+  aspect-ratio: 16/10;
+  touch-action: pan-y;
+}
+@media (max-width: 640px){
+  .crsl{ aspect-ratio: 4/3; }
+}
+.crsl .crsl__track{
+  display: flex;
+  width: 100%;
+  height: 100%;
+  transition: transform .45s ease;
+  will-change: transform;
+}
+.crsl .crsl__slide{
+  flex: 0 0 100%;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+}
+
+/* Reviews carousel override */
+.crsl.reviews-crsl{
+  aspect-ratio: auto;
+  height: auto;
+  overflow: hidden; /* one review visible */
+}
+.crsl.reviews-crsl .crsl__track{
+  height: auto;
+}
+.crsl.reviews-crsl .crsl__slide{
+  height: auto;
+  object-fit: contain;
+}
+
+/* =============================
+   Floating WhatsApp button
+   ============================= */
+.float-whatsapp{
+  position: fixed;
+  bottom: 1rem;
+  right: 1rem;
+  width: 56px;
+  height: 56px;
+  border-radius: 50%;
+  background: #25D366;
+  box-shadow: 0 2px 6px rgba(0,0,0,.3);
+  display: grid;
+  place-items: center;
+  z-index: 9999;
+}
+.float-whatsapp img{ width: 28px; height: 28px; }
