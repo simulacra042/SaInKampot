@@ -59,10 +59,7 @@ img{max-width:100%;display:block}
 .crsl__dot{width:8px;height:8px;border-radius:999px;border:1px solid rgba(255,255,255,.6);background:transparent}
 .crsl__dot[aria-current="true"]{background:#fff}
 .crsl__price{position:absolute;top:.6rem;right:.6rem;background:linear-gradient(90deg,var(--accent),var(--accent2));color:#02131a;font-weight:900;padding:.3rem .5rem;border-radius:10px;font-size:.85rem}
-.crsl { touch-action: pan-y; }
-.crsl__btn,
-.crsl__dots { z-index: 2; position: absolute; }
-.crsl__track { will-change: transform; }
+
 /* =====================
    Footer
    ===================== */
@@ -105,3 +102,58 @@ footer{margin-top:3rem;padding:2rem 0 3rem;color:var(--muted);border-top:1px sol
 
 /* Reduced motion */
 @media(prefers-reduced-motion:reduce){*{animation:none!important;transition:none!important}}
+
+/* ===== Reviews (What travelers say) ===== */
+.reviews .section__hd { text-align:center; margin-bottom:1rem; }
+.review.card { padding:1rem; color:#fff; background:rgba(255,255,255,.06); border:1px solid rgba(255,255,255,.08); border-radius:14px; margin:0 6px; }
+.rev__head { display:flex; gap:.75rem; align-items:center; margin-bottom:.5rem; }
+.rev__avatar { width:36px; height:36px; border-radius:999px; display:grid; place-items:center; font-weight:700; background:linear-gradient(135deg,var(--accent),var(--accent2)); color:#02131a; }
+.rev__name { font-weight:700; }
+.rev__meta { font-size:.85rem; opacity:.85; }
+.stars { letter-spacing:.1em; }
+.rev__text { font-size:1.05rem; line-height:1.5; margin:.5rem 0 1rem; }
+.rev__link { font-size:.9rem; text-decoration:underline; opacity:.9; }
+.reviews__cta { text-align:center; margin-top:1rem; }
+.reviews .btn { display:inline-block; padding:.6rem 1rem; border-radius:10px; border:1px solid rgba(255,255,255,.2); }
+.reviews-crsl .crsl__slide { display:flex; flex-direction:column; justify-content:space-between; }
+
+
+/* === Reviews carousel compact + overflow fix === */
+.reviews.section { margin-top: 0.5rem; }
+.reviews .wrap { max-width: 720px; margin-inline: auto; }
+
+/* Override the global carousel sizing for the reviews carousel only */
+.reviews-crsl { 
+  aspect-ratio: auto;         /* don't force tall 16/10 box */
+  background: transparent; 
+  overflow: hidden;           /* prevent horizontal scroll */
+}
+
+.reviews-crsl .crsl__track {
+  height: auto;               /* allow content to define height */
+  transition: transform .45s ease; /* keep smooth slide */
+}
+
+.reviews-crsl .crsl__slide {
+  min-width: 100%;            /* keep JS alignment logic intact */
+  height: auto;               /* grow to fit the card */
+  display: flex;
+  justify-content: center;    /* center the card within the slide */
+}
+
+.reviews-crsl .review.card {
+  width: 100%;
+  max-width: 560px;           /* compact card width */
+  padding: .9rem;
+}
+
+/* Tighten typography */
+.reviews .section__hd { margin-bottom:.4rem; }
+.rev__avatar { width:28px; height:28px; font-size:.9rem; }
+.rev__name { font-weight:700; font-size:.95rem; }
+.rev__meta { font-size:.8rem; opacity:.8; }
+.rev__text { font-size:.95rem; line-height:1.4; margin:.35rem 0 .75rem;
+  display:-webkit-box; -webkit-line-clamp:3; -webkit-box-orient:vertical; overflow:hidden; }
+.stars { font-size:.9rem; }
+.reviews__cta { margin-top:.5rem; }
+
