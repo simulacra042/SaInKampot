@@ -68,14 +68,14 @@ footer{margin-top:3rem;padding:2rem 0 3rem;color:var(--muted);border-top:1px sol
 /* =====================
    FAQ (faq-*)
    ===================== */
-.faq{margin-top:2rem}
-.faq .faq__list{display:flex;flex-direction:column;gap:.75rem}
-.faq details{border:1px solid rgba(255,255,255,.1);border-radius:14px;padding:1rem 1.1rem;background:linear-gradient(180deg,rgba(255,255,255,.05),rgba(255,255,255,.02))}
+.faq{margin-top:3rem;padding:1.25rem 0 2rem}
+.faq .faq__list{display:flex;flex-direction:column;gap:1rem}
+.faq details{border:1px solid rgba(255,255,255,.1);border-radius:14px;padding:1.1rem 1.2rem;background:linear-gradient(180deg,rgba(255,255,255,.05),rgba(255,255,255,.02));box-shadow:0 8px 22px rgba(0,0,0,.18)}
 .faq details[open]{box-shadow:0 12px 30px rgba(0,0,0,.25), inset 0 0 0 1px rgba(255,255,255,.12)}
-.faq summary{list-style:none;cursor:pointer;display:flex;align-items:center;gap:.6rem;font-weight:800;font-size:1.05rem}
+.faq summary{list-style:none;cursor:pointer;display:flex;align-items:center;gap:.6rem;font-weight:800;font-size:1.12rem;padding:.1rem 0}
 .faq summary::-webkit-details-marker{display:none}
 .faq summary::before{content:'✦';display:inline-grid;place-items:center;width:26px;height:26px;border-radius:999px;background:linear-gradient(90deg,var(--accent),var(--accent2));color:#02131a;font-weight:900}
-.faq__content{margin-top:.5rem;color:#cbd5e1}
+.faq__content{margin-top:.6rem;color:#cbd5e1;line-height:1.55}
 
 /* =====================
    Floating WhatsApp
@@ -157,3 +157,56 @@ footer{margin-top:3rem;padding:2rem 0 3rem;color:var(--muted);border-top:1px sol
 .stars { font-size:.9rem; }
 .reviews__cta { margin-top:.5rem; }
 
+
+.faq summary::after{content:'▾';margin-left:auto;opacity:.85;transition:transform .2s ease}
+
+.faq details[open] summary::after{transform:rotate(180deg)}
+
+
+/* =====================
+   Contact (Book a Tour) emphasis
+   ===================== */
+.contactCard{
+  position: relative;
+  padding: 1.4rem 1.25rem 1.4rem !important;
+  background: radial-gradient(1200px 400px at 20% -20%, rgba(34,211,238,.15), transparent 50%),
+              radial-gradient(1200px 400px at 80% 0%, rgba(167,139,250,.12), transparent 55%),
+              linear-gradient(180deg, rgba(255,255,255,.05), rgba(255,255,255,.02));
+  border: 1px solid rgba(255,255,255,.12);
+  border-radius: 16px;
+  box-shadow: 0 16px 40px rgba(0,0,0,.28);
+  overflow: hidden;
+}
+.contactCard::before{
+  content:"";
+  position:absolute;
+  inset:0 0 auto 0;
+  height:6px;
+  background: linear-gradient(90deg, var(--accent), var(--accent2));
+}
+.contact__hd{
+  display:flex;
+  align-items:center;
+  gap:.8rem;
+  margin:.4rem 0 0.6rem;
+}
+.contact__avatar{
+  width:64px;height:64px;border-radius:999px;box-shadow:0 2px 10px rgba(0,0,0,.25);
+}
+.contact__kicker{
+  font-weight:800;
+  font-size:1.05rem;
+  color:#e6fbff;
+}
+/* Make the heading a bit larger inside contact */
+#contact h2{
+  font-size:1.4rem !important;
+  margin: 0 0 .3rem !important;
+}
+/* Buttons: make the first one stand out on mobile */
+#contact .buttons .btn:first-child{
+  background: linear-gradient(90deg, var(--accent), var(--accent2));
+  color: #02131a;
+  border-color: transparent;
+  font-weight:900;
+}

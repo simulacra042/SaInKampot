@@ -165,7 +165,7 @@ function initCarousels(){
 }
 
 document.addEventListener("DOMContentLoaded", () => {
-  I18N.load();
-  I18N.initSelector();
+  // I18N.load(); // disabled for EN-only phase
+  // I18N.initSelector(); // disabled for EN-only phase
   initCarousels();
 });
