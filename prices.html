@@ -7,8 +7,8 @@
   <style>
     body {
       font-family: 'Segoe UI', Arial, sans-serif;
-      background: #f9fafb;
-      color: #222;
+      background: #15181c;
+      color: #f2f4fa;
       margin: 0;
       padding: 0;
     }
@@ -16,12 +16,12 @@
       max-width: 650px;
       margin: 32px auto;
       padding: 24px;
-      background: #fff;
+      background: #22252a;
       border-radius: 14px;
-      box-shadow: 0 6px 24px 0 rgba(0,0,0,0.07);
+      box-shadow: 0 6px 24px 0 rgba(10,16,32,0.33);
     }
     h1, h2 {
-      color: #1877f2;
+      color: #5cb0ff;
       margin-top: 0;
     }
     .pricing-table {
@@ -33,54 +33,85 @@
     }
     .card {
       flex: 1 1 220px;
-      background: #f4f8ff;
+      background: #23283a;
       border-radius: 12px;
-      box-shadow: 0 1px 5px 0 rgba(0,0,0,0.04);
+      box-shadow: 0 1px 5px 0 rgba(10,16,32,0.16);
       padding: 20px;
       margin-bottom: 16px;
       min-width: 220px;
+      border: 1px solid #23273d;
     }
     .card.vip {
-      background: #fff6e6;
+      background: #28221b;
       border: 2px solid #ffd466;
     }
     .price {
       font-size: 1.6em;
-      color: #1877f2;
+      color: #5cb0ff;
       font-weight: bold;
       margin: 10px 0 4px;
     }
     .usd {
-      color: #888;
+      color: #ffe097;
       font-size: 1em;
       margin-left: 6px;
     }
     .per {
       font-size: 0.9em;
-      color: #888;
+      color: #c2c2c2;
       margin-left: 2px;
     }
     ul {
       padding-left: 18px;
       margin: 10px 0 0;
     }
+    li {
+      color: #e0e3e6;
+      margin-bottom: 6px;
+    }
     .addons {
       margin-top: 30px;
-      background: #f5f7fa;
+      background: #1d2129;
       border-radius: 12px;
       padding: 18px;
-      box-shadow: 0 1px 5px 0 rgba(0,0,0,0.03);
+      box-shadow: 0 1px 5px 0 rgba(10,16,32,0.08);
     }
     @media (max-width: 700px) {
       .container {padding: 10px;}
       .pricing-table {flex-direction: column;}
       .card {margin-bottom: 12px;}
-    }
-  </style>
+    }.main-title {
+  font-size: 2.7em;
+  font-weight: 900;
+  letter-spacing: 1.2px;
+  text-align: center;
+  margin-bottom: 20px;
+  background: linear-gradient(180deg, #5cb0ff 0%, #2716a3 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  text-fill-color: transparent;
+  filter: drop-shadow(0 6px 26px #001040a0) drop-shadow(0 2px 4px #22d3ee60);
+  position: relative;
+}
+
+.main-title::after {
+  content: '';
+  display: block;
+  width: 80px;
+  height: 4px;
+  background: linear-gradient(90deg,#5cb0ff 15%,#2716a3 85%);
+  margin: 14px auto 0 auto;
+  border-radius: 3px;
+  opacity: 0.95;
+  box-shadow: 0 1px 14px #5cb0ff55;
+}
+
+</style>
 </head>
 <body>
   <div class="container">
-    <h1>Professional Website Packages for Tuktuk & Local Tours</h1>
+    <h1 class="main-title">Jason's Business Package</h1>
     <div class="pricing-table">
       <div class="card">
         <h2>Regular</h2>
@@ -88,42 +119,64 @@
         <div class="per">First 3 months</div>
         <div class="price" style="font-size:1.1em;">50,000៛ <span class="usd">($12.50)</span> <span class="per">/mo after</span></div>
         <ul>
-          <li>1-page mobile website</li>
-          <li>Domain setup &amp; management</li>
-          <li>Hosting &amp; SSL included</li>
-          <li>Business card + QR code included</li>
-          <li>Google review setup</li>
+          <li>Business Website</li>
+          <li>www.YourName.com</li>
+          <li>World Wide Cloud service</li>
+          <li>Business card + QR code</li>
+          <li>Google page setup</li>
           <li>Support or changes: <b>50,000៛</b> ($12.50) per request</li>
         </ul>
       </div>
       <div class="card vip">
-        <h2>VIP</h2>
+        <h2>VIP – Full package</h2>
         <div class="price">300,000៛ <span class="usd">($75)</span> <span class="per">/mo</span></div>
         <div class="per">First 3 months</div>
         <div class="price" style="font-size:1.1em;">50,000៛ <span class="usd">($12.50)</span> <span class="per">/mo after</span></div>
         <ul>
           <li>Everything in Regular, plus:</li>
           <li><b>Five free changes included (250,000៛ value!)</b></li>
-          <li>Business card + poster + QR code included</li>
+          <li>Business card + poster + QR code</li>
           <li>Google Maps, GetYourGuide, Tripadvisor setup included</li>
+<li style="list-style:none; margin:10px 0 0 0; padding:0;">
+  <span style="background:#ffd466; color:#2d2300; font-size:1.08em; font-weight:700; padding:6px 18px; border-radius:10px; display:inline-block; box-shadow:0 1px 5px 0 rgba(10,16,32,0.10); letter-spacing:0.2px;">Save $100!</span>
+</li>
         </ul>
       </div>
     </div>
 
     <div class="addons">
-      <h2>Add-ons</h2>
-      <ul>
-        <li><b>Media Package (Business Card + Poster + QR Code):</b> 150,000៛ ($37.50)</li>
-        <li><b>GetYourGuide Setup:</b> 100,000៛ ($25)</li>
-        <li><b>TripAdvisor Setup:</b> 100,000៛ ($25)</li>
-        <li><b>Google Maps/Business Setup:</b> 100,000៛ ($25)</li>
-        <li><b>Full Travel Listings Package (GetYourGuide, TripAdvisor &amp; Google):</b> 250,000៛ ($62.50)</li>
-        <li><b>Extra support or changes:</b> 50,000៛ ($12.50) per request</li>
-      </ul>
-    </div>
-    <p style="margin-top: 36px; color:#666; font-size:1em;">
+  <h2>Add-ons</h2>
+  <table style="width:100%;border-collapse:separate;border-spacing:0 10px;">
+    <tbody>
+      <tr>
+        <td style="padding:12px 8px 12px 0;font-weight:bold; color:#ffe097;">Media Package (Business Card + Poster + QR Code)</td>
+        <td style="padding:12px 0 12px 8px; text-align:right; white-space:nowrap; color:#5cb0ff; font-weight:bold;">150,000៛ <span style='color:#aaa;font-weight:normal'>($37.50)</span></td>
+      </tr>
+      <tr>
+        <td style="padding:12px 8px 12px 0;font-weight:bold; color:#ffe097;">GetYourGuide Setup</td>
+        <td style="padding:12px 0 12px 8px; text-align:right; white-space:nowrap; color:#5cb0ff; font-weight:bold;">100,000៛ <span style='color:#aaa;font-weight:normal'>($25)</span></td>
+      </tr>
+      <tr>
+        <td style="padding:12px 8px 12px 0;font-weight:bold; color:#ffe097;">TripAdvisor Setup</td>
+        <td style="padding:12px 0 12px 8px; text-align:right; white-space:nowrap; color:#5cb0ff; font-weight:bold;">100,000៛ <span style='color:#aaa;font-weight:normal'>($25)</span></td>
+      </tr>
+      <tr>
+        <td style="padding:12px 8px 12px 0;font-weight:bold; color:#ffe097;">Google Maps/Business Setup</td>
+        <td style="padding:12px 0 12px 8px; text-align:right; white-space:nowrap; color:#5cb0ff; font-weight:bold;">100,000៛ <span style='color:#aaa;font-weight:normal'>($25)</span></td>
+      </tr>
+      <tr>
+        <td style="padding:12px 8px 12px 0;font-weight:bold; color:#ffe097;">Full Travel Listings Package (GetYourGuide, TripAdvisor &amp; Google)</td>
+        <td style="padding:12px 0 12px 8px; text-align:right; white-space:nowrap; color:#5cb0ff; font-weight:bold;">250,000៛ <span style='color:#aaa;font-weight:normal'>($62.50)</span></td>
+      </tr>
+      <tr>
+        <td style="padding:12px 8px 12px 0;font-weight:bold; color:#ffe097;">Extra support or changes</td>
+        <td style="padding:12px 0 12px 8px; text-align:right; white-space:nowrap; color:#5cb0ff; font-weight:bold;">50,000៛ <span style='color:#aaa;font-weight:normal'>($12.50)</span></td>
+      </tr>
+    </tbody>
+  </table>
+</div>
+    <p style="margin-top: 36px; color:#aaa; font-size:1em;">
       <b>Get started today! Your online business can be ready in just a few days.</b>
     </p>
-  </div>
-</body>
+  
 </html>
