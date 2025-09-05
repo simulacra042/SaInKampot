@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Site Stats</title>
+  <style>
+    body { font-family: sans-serif; margin: 2em; }
+    table { border-collapse: collapse; width: 100%; max-width: 500px; }
+    th, td { border: 1px solid #ddd; padding: 8px; }
+    th { background: #eee; }
+  </style>
+</head>
+<body>
+  <h2>Traffic Stats (Last 7 Days)</h2>
+  <table id="stats">
+    <thead>
+      <tr>
+        <th>Date</th>
+        <th>Page Views</th>
+        <th>Requests</th>
+        <th>MB Transferred</th>
+      </tr>
+    </thead>
+    <tbody></tbody>
+  </table>
+  <script>
+    fetch('https://stats-proxy.jasonvaux.workers.dev/')
+      .then(resp => resp.json())
+      .then(data => {
+        const days = data.data.viewer.zones[0].httpRequests1dGroups;
+        const tbody = document.querySelector('#stats tbody');
+        days.forEach(day => {
+          const tr = document.createElement('tr');
+          tr.innerHTML = `
+            <td>${day.dimensions.date}</td>
+            <td>${day.sum.pageViews}</td>
+            <td>${day.sum.requests}</td>
+            <td>${(day.sum.bytes / 1024 / 1024).toFixed(2)}</td>
+          `;
+          tbody.appendChild(tr);
+        });
+      });
+  </script>
+</body>
+</html>
